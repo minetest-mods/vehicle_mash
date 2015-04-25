@@ -1,6 +1,6 @@
 mod for Minetest: Cars
 by: blert
-version: 1.0.4.24.2015 (major.minor.month.day.year)
+version: 1.1
 
 A merge of the three car mods I could find on the MineTest forum into a more API-like mod.
 
@@ -13,6 +13,10 @@ Adding new cars is a simple matter of:
 
 No crafting yet. Use Creative or /give.
 
+***Installation***
+------------------
+	rename folder to "cars" if necessary
+
 ***Compatability***
 -------------------
 	Good Luck!
@@ -23,7 +27,14 @@ No crafting yet. Use Creative or /give.
 
 ***To Do***
 -----------
+	- make little guy sit straight forward
 	- crafting
+
+
+***Change Log***
+----------------
+v1.1 4/25/2015 - not coming to complete stop (fixed)
+v1.0 4/24/2015 - first release
 
 
 ***CREDIT WHERE CREDIT IS DUE***
@@ -38,7 +49,7 @@ No crafting yet. Use Creative or /give.
 			Sourcecode: WTFPL, http://sam.zoy.org/wtfpl/
 			Models, Graphics & Sounds: CC BY-NC-ND 4.0 International, http://creativecommons.org/licenses/by-nc-nd/4.0/
 
-	Black, Blue, Brown, Cyan, Dark Green, Dark Grey, Green, Grey, Magenta, Orange,Pink,
+	Black, Blue, Brown, Cyan, Dark Green, Dark Grey, Green, Grey, Magenta, Orange, Pink,
 	Red, Violet, White, Yellow, Hot Rod, Nyan Ride, Oerkki Bliss, and Road Master from:
 		"Car" by Esteban
 		https://forum.minetest.net/viewtopic.php?f=13&t=7407

@@ -100,16 +100,16 @@ function cars:register_car(name, def)
 				local ctrl = self.driver:get_player_control()
 				if ctrl.up then
 					if get_sign(self.v) >= 0 then
-						self.v = self.v+self.accel/10
+						self.v = self.v + self.accel / 10
 					else
-						self.v = self.v+self.braking/10
+						self.v = self.v + self.braking / 10
 					end
 				end
 				if ctrl.down then
 					if get_sign(self.v) < 0 then
-						self.v = self.v-self.accel/10
+						self.v = self.v - self.accel / 10
 					else
-						self.v = self.v-self.braking/10
+						self.v = self.v - self.braking / 10
 					end
 				end
 				if ctrl.left then
@@ -136,6 +136,14 @@ function cars:register_car(name, def)
 				self.f = 0
 			elseif self.f > 0.5 then
 				self.f = 0.5
+			end
+			-- Stop damn car!
+			local s = get_sign(self.v)
+			self.v = self.v - 0.03 * s
+			if s ~= get_sign(self.v) then
+				self.object:setvelocity({x=0, y=0, z=0})
+				self.v = 0
+				return
 			end
 			-- Speed limit forward and reverse
 			local max_spd = self.max_spd_r
