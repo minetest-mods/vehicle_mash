@@ -1,5 +1,8 @@
-cars:register_car("cars:car_hot_rod", {
-	description = "Car: hot_rod",
+vehicle_mash:register_car("vehicle_mash:car_hot_rod", {
+	description = "Hot Rod car",
+	is_boat = false,
+	drop_on_destroy = "",
+	recipe = {},
 	inventory_image = "inv_car_red.png",
 	wield_image = "inv_car_red.png",
 	wield_scale = {x=1, y=1, z=1},

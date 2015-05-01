@@ -1,5 +1,8 @@
-cars:register_car("cars:car_oerkki_bliss", {
-	description = "Car: oerkki_bliss",
+vehicle_mash:register_car("vehicle_mash:car_oerkki_bliss", {
+	description = "Oerkki Bliss car",
+	is_boat = false,
+	drop_on_destroy = "",
+	recipe = {},
 	inventory_image = "inv_car_black.png",
 	wield_image = "inv_car_black.png",
 	wield_scale = {x=1, y=1, z=1},
