@@ -1,13 +1,13 @@
 ***Vehicles_mash***
 - version: 1.2
 - by blert2112
-
+_____
 A merge of all the vehicles from:
 - "Cars" by Radoslaw Slowik
 - "Mesecars" by paramat
 - "Car" by Esteban
 - "Boats" by PilzAdam
-
+_____
 - 26 vehicles currently
 - Disable vehicles by commenting out it's 'dofile' line in init.lua
 - Adding new vehicles is a simple matter of:
@@ -15,21 +15,21 @@ A merge of all the vehicles from:
 	- create, and name appropriately, a new .lua file for the vehicle based on one of the existing ones
 	- change settings in the file you created to reflect the new vehicle
 	- add a new line to init.lua to load the vehicle 'dofile(minetest.get_modpath("vehicle_mash").."/NAME_OF_VEHICLE.lua")'
-
+_____
 ***Installation***
 - rename folder to "vehicle_mash" if necessary
-
+_____
 ***License***
 All licenses of previous works, of course, apply. (see credits below)
 As far as the work I did... It's really just a fork of a fork of a fork of a fork, tossed it all into a blender and spun it on puree for a bit. Baked it for a while and set it on the counter to cool. What I mean is, make what you will of it, it matters not to me.
-
+_____
 ***Dependencies***
 - Default
-
+_____
 ***To Do***
 - make little guy sit straight forward
 - crafting
-
+_____
 ***Change Log***
 v1.2 5/1/2015 
 	- added boats
@@ -38,7 +38,7 @@ v1.1 4/25/2015
 	- car won't come to a complete stop (fixed)
 v1.0 4/24/2015
 	- first release
-
+_____
 ***CREDIT WHERE CREDIT IS DUE***
 - F1 and 126R cars from: "Cars" by Radoslaw Slowik
 	- https://forum.minetest.net/viewtopic.php?f=9&t=8698
