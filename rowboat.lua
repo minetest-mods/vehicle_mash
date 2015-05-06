@@ -1,5 +1,7 @@
 vehicle_mash:register_car("vehicle_mash:rowboat", {
 	description = "Rowboat",
+	attach_player_at = {x=0,y=11,z=-3},
+	player_rotation = {x=0,y=0,z=0},
 	is_boat = true,
 	drop_on_destroy = "default:wood 3",
 	recipe = {

@@ -60,7 +60,7 @@ function vehicle_mash:register_car(name, def)
 				default.player_set_animation(clicker, "stand" , 30)
 			elseif not self.driver then
 				self.driver = clicker
-				clicker:set_attach(self.object, "", {x=0,y=5,z=0}, {x=0,y=0,z=0})
+				clicker:set_attach(self.object, "", def.player_attach_at, def.player_rotation)
 				default.player_attached[pname] = true
 				minetest.after(0.2, function()
 					default.player_set_animation(clicker, "sit" , 30)
@@ -159,6 +159,7 @@ function vehicle_mash:register_car(name, def)
 			local p = self.object:getpos()
 			local new_velo = {x = 0, y = 0, z = 0}
 			local new_acce = {x = 0, y = 0, z = 0}
+
 			if def.is_boat then
 				p.y = p.y - 0.5
 				if not is_water(p) then
@@ -205,6 +206,7 @@ function vehicle_mash:register_car(name, def)
 			end
 			self.object:setvelocity(new_velo)
 			self.object:setacceleration(new_acce)
+
 			if def.is_boat then
 				-- if boat comes to sudden stop then it has crashed, destroy boat and drop 3x wood
 				if self.v2 - self.v >= 3 then
@@ -232,13 +234,14 @@ function vehicle_mash:register_car(name, def)
 			if pointed_thing.type ~= "node" then
 				return
 			end
-			if liquids_pointable then
+			if def.is_boat then
 				if not is_water(pointed_thing.under) then
 					return
 				end
 				pointed_thing.under.y = pointed_thing.under.y + 0.5
 				minetest.add_entity(pointed_thing.under, name)
 			else
+				pointed_thing.above.y = pointed_thing.above.y + def.onplace_position_adj
 				minetest.env:add_entity(pointed_thing.above, name)
 			end
 			itemstack:take_item()

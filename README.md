@@ -1,5 +1,5 @@
 ***Vehicles_mash***
-- version: 1.2
+- version: 1.3
 - by blert2112
 
 A merge of all the vehicles from:
@@ -7,8 +7,9 @@ A merge of all the vehicles from:
 - "Mesecars" by paramat
 - "Car" by Esteban
 - "Boats" by PilzAdam
+- "Hovercraft" by Stuart Jones (experimental and disabled by default)
 
-- 26 vehicles currently
+- 26 vehicles currently (27 if you include the experimental hovercraft)
 - Disable vehicles by commenting out it's 'dofile' line in init.lua
 - Adding new vehicles is a simple matter of:
 	- create/aquire vehicle model and textures
@@ -27,10 +28,15 @@ As far as the work I did... It's really just a fork of a fork of a fork of a for
 - Default
 
 ***To Do***
-- make little guy sit straight forward
+- complete the addition of the hovercraft
 - crafting
 
 ***Change Log***
+v1.3 5/5/2015
+	- player now sits forward in vehicles
+	- tweaked player sit positions
+	- tweaked collison boxes
+	- proper placement on_ground/in_water
 v1.2 5/1/2015 
 	- added boats
 	- changed name so  to not conflict with other mods
@@ -60,6 +66,9 @@ v1.0 4/24/2015
 	- textures: Zeg9
 	- model: thetoon and Zeg9, modified by PavelS(SokolovPavel)
 	- License: WTFPL
+
+- Hovercraft from "Hovercraft" by Stuart Jones
+	Licenses: textures CC-BY-SA
 
 I am sure many others deserve mention. If you feel left out let me know and I will add you in.
 

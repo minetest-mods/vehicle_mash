@@ -1,11 +1,14 @@
 vehicle_mash:register_car("vehicle_mash:mesecar_pink", {
 	description = "Mesecar pink",
 	is_boat = false,
+	player_attach_at = {x=-2.1,y=3,z=0},
+	player_rotation = {x=0,y=90,z=0},
+	onplace_position_adj = 0.25,
 	drop_on_destroy = "",
 	recipe = {},
 	inventory_image = "mesecar_car3front.png",
 	wield_image = "mesecar_car3front.png",
-	wield_scale = {x=2, y=2, z=2},
+	wield_scale = {x=1, y=1, z=1},
 	visual = "cube",
 	mesh = "",
 	visual_size = {x=1.5, y=1.5},
@@ -23,5 +26,5 @@ vehicle_mash:register_car("vehicle_mash:mesecar_pink", {
 	accel = 2,
 	braking = 4,
 	turn_speed = 2,
-	collisionbox = {-0.53, -0.75, -0.53, 0.53, 0.75, 0.53},
+	collisionbox = {-0.75, -0.75, -0.75, 0.75, 0.75, 0.75},
 })

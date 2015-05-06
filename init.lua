@@ -30,3 +30,6 @@ dofile(minetest.get_modpath("vehicle_mash").."/mese_purple.lua")
 -- Boats
 dofile(minetest.get_modpath("vehicle_mash").."/boat.lua")
 dofile(minetest.get_modpath("vehicle_mash").."/rowboat.lua")
+
+-- Hovercraft
+--dofile(minetest.get_modpath("vehicle_mash").."/hover_blue.lua")
