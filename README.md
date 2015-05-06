@@ -68,12 +68,12 @@ v1.0 4/24/2015
 	- License: WTFPL
 
 - Hovercraft from "Hovercraft" by Stuart Jones
-	Licenses:
-		textures: CC-BY-SA
-		sounds: freesound.org
-			Rocket Boost Engine Loop by qubodup - CC0
-			CARTOON-BING-LOW by kantouth - CC-BY-3.0
-			All other sounds: Copyright Stuart Jones - CC-BY-SA
+	- Licenses:
+		- textures: CC-BY-SA
+		- sounds: freesound.org
+			- Rocket Boost Engine Loop by qubodup - CC0
+			- CARTOON-BING-LOW by kantouth - CC-BY-3.0
+			- All other sounds: Copyright Stuart Jones - CC-BY-SA
 
 I am sure many others deserve mention. If you feel left out let me know and I will add you in.
 
