@@ -1,24 +1,31 @@
-vehicle_mash:register_car("vehicle_mash:car_orange", {
+
+local name = "car_orange"
+
+local definition = {
 	description = "Orange car",
-	is_boat = false,
-	player_attach_at = {x=0,y=12,z=0},
-	player_rotation = {x=0,y=90,z=0},
+	collisionbox = {-1.6, -0.05, -1.3, 1.0, 1, 0.5},
 	onplace_position_adj = -0.45,
-	drop_on_destroy = "",
-	recipe = {},
+	is_boat = false,
+	player_rotation = {x=0,y=90,z=0},
+	driver_attach_at = {x=0,y=12,z=0},
+	number_of_passengers = 1,
+	passenger_attach_at = {x=0,y=12,z=-8},
+	passenger_eye_offset = {x=8, y=0, z=0},
 	inventory_image = "inv_car_orange.png",
 	wield_image = "inv_car_orange.png",
 	wield_scale = {x=1, y=1, z=1},
 	visual = "mesh",
 	mesh = "car.x",
-	visual_size = {x=1, y=1},
 	textures = {"car_orange.png"},
-	stepheight = 1.1, -- Stepheight, 0.6 = climb slabs, 1.1 = climb nodes
+	visual_size = {x=1, y=1},
+	stepheight = 1.1,
 	max_speed_forward = 20,
 	max_speed_reverse = 10,
 	accel = 2,
 	braking = 4,
 	turn_speed = 2,
-	collisionbox = {-1.6, -0.05, -1.3, 1.0, 1, 0.5},
---                  back, bottom, starboard, front, top, port
-})
+	drop_on_destroy = "",
+	recipe = {}
+}
+
+vehicle_mash:register_vehicle("vehicle_mash:"..name, definition)

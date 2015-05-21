@@ -1,5 +1,5 @@
 ***Vehicles_mash***
-- version: 1.3
+- version: 1.4
 - by blert2112
 
 A merge of all the vehicles from:
@@ -10,6 +10,8 @@ A merge of all the vehicles from:
 - "Hovercraft" by Stuart Jones (experimental and disabled by default)
 
 - 26 vehicles currently (27 if you include the experimental hovercraft)
+- Certain vehicles can now carry passengers. Currently one passenger max.
+
 - Disable vehicles by commenting out it's 'dofile' line in init.lua
 - Adding new vehicles is a simple matter of:
 	- create/aquire vehicle model and textures
@@ -32,6 +34,11 @@ As far as the work I did... It's really just a fork of a fork of a fork of a for
 - crafting
 
 ***Change Log***
+v1.4 5/19/2015
+	- attach (one) passenger added
+	- reorganized vehicle definition file code and added some variables pertaining to passengers
+	- added a vehicle definition file template with comments
+	- cleaned up to remove code dulplication
 v1.3 5/5/2015
 	- player now sits forward in vehicles
 	- tweaked player sit positions

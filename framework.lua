@@ -29,47 +29,101 @@ local function is_water(pos)
 	return minetest.get_item_group(nn, "water") ~= 0
 end
 
-function vehicle_mash:register_car(name, def)
+local function AttachPlayer(self, clicker, is_driver)
+	local pname = clicker:get_player_name()
+	local attach_at
+	if is_driver then
+		attach_at = self.driver_attach_at
+	else
+		attach_at = self.passenger_attach_at
+		clicker:set_eye_offset(self.passenger_eye_offset, {x=0, y=0, z=0})
+	end
+	clicker:set_attach(self.object, "", attach_at, self.player_rotation)
+	default.player_attached[pname] = true
+	minetest.after(0.2, function()
+		default.player_set_animation(clicker, "sit" , 30)
+	end)
+	if self.is_boat then
+		self.object:setyaw(clicker:get_look_yaw() - math.pi/2)
+	else
+		self.object:setyaw(clicker:get_look_yaw())
+	end
+	return clicker
+end
+
+local function DetachPlayer(self, clicker, is_driver)
+	local pname = clicker:get_player_name()
+	clicker:set_detach()
+	default.player_attached[pname] = false
+	default.player_set_animation(clicker, "stand" , 30)
+	if not is_driver then
+		clicker:set_eye_offset({x=0, y=0, z=0}, {x=0, y=0, z=0})
+	end
+	return nil
+end
+
+function vehicle_mash:register_vehicle(name, def)
 	minetest.register_entity(name, {
-		textures = def.textures,
-		name = name,
-		physical = true,
 		collisionbox = def.collisionbox,
+		is_boat = def.is_boat,
+		player_rotation = def.player_rotation,
+		driver_attach_at = def.driver_attach_at,
+		driver_detach_pos_offset = def.driver_detach_pos_offset,
+		number_of_passengers = def.number_of_passengers,
+		passenger_attach_at = def.passenger_attach_at,
+		passenger_eye_offset = def.passenger_eye_offset,
+		passenger_detach_pos_offset = def.passenger_detach_pos_offset,
 		visual = def.visual,
-		visual_size = def.visual_size,
 		mesh = def.mesh,
+		textures = def.textures,
+		tiles = def.tiles,
+		visual_size = def.visual_size,
 		stepheight = def.stepheight,
-		driver = nil,
-		v = 0,
-		v2 = 0,
-		mouselook = 1,
 		max_spd_f = def.max_speed_forward,
 		max_spd_r = def.max_speed_reverse,
 		accel = def.accel,
 		braking = def.braking,
 		turn_spd = def.turn_speed,
+		drop_on_destroy = def.drop_on_destroy,
+		driver = nil,
+		passenge = nil,
+		v = 0,
+		v2 = 0,
+		mouselook = 1,
+		physical = true,
+		removed = false,
 		on_rightclick = function(self, clicker)
 			if not clicker or not clicker:is_player() then
 				return
 			end
-			local pname = clicker:get_player_name()
-			if self.driver and clicker == self.driver then
-				self.driver = nil
-				clicker:set_detach()
-				default.player_attached[pname] = false
-				default.player_set_animation(clicker, "stand" , 30)
-			elseif not self.driver then
-				self.driver = clicker
-				clicker:set_attach(self.object, "", def.player_attach_at, def.player_rotation)
-				default.player_attached[pname] = true
-				minetest.after(0.2, function()
-					default.player_set_animation(clicker, "sit" , 30)
-				end)
-				if def.is_boat then
-					self.object:setyaw(clicker:get_look_yaw() - math.pi/2)
+			-- if there is already a driver
+			if self.driver then
+				-- if clicker is driver detach passenger and driver
+				if clicker == self.driver then
+					-- if passenger detach first
+					if self.passenger then
+						self.passenger = DetachPlayer(self, self.passenger, false)
+					end
+					-- detach driver
+					self.driver = DetachPlayer(self, clicker, true)
+				-- if clicker is not the driver
 				else
-					self.object:setyaw(clicker:get_look_yaw())
+					-- if clicker is pasenger
+					if clicker == self.passenger then
+						-- detach passenger
+						self.passenger = DetachPlayer(self, clicker, false)
+					-- if clicker is not passenger
+					else
+						-- attach passenger if possible
+						if not self.passenger and self.number_of_passengers > 0 then
+							self.passenger = AttachPlayer(self, clicker, false)
+						end
+					end
 				end
+			-- if there is no driver
+			else
+				-- attach driver
+				self.driver = AttachPlayer(self, clicker, true)
 			end
 		end,
 		on_activate = function(self, staticdata, dtime_s)
@@ -82,25 +136,16 @@ function vehicle_mash:register_car(name, def)
 		get_staticdata = function(self)
 			return tostring(self.v)
 		end,
-		on_punch = function(self, puncher, time_from_last_punch, tool_capabilities, direction)
-			if not puncher or not puncher:is_player() or self.removed then
+		on_punch = function(self, puncher, time_from_last_punch, tool_capabilities, dir)
+			if not puncher or not puncher:is_player() or self.removed or self.driver then
 				return
 			end
-			if self.driver and puncher == self.driver then
-				self.driver = nil
-				puncher:set_detach()
-				default.player_attached[puncher:get_player_name()] = false
-			end
-			if not self.driver then
-				self.removed = true
-				-- delay remove to ensure player is detached
-				minetest.after(0.1, function()
-					self.object:remove()
-				end)
-				if not minetest.setting_getbool("creative_mode") then
-					puncher:get_inventory():add_item("main", self.name)
-				end
-			end
+			self.removed = true
+			-- delay remove to ensure player is detached
+			minetest.after(0.1, function()
+				self.object:remove()
+			end)
+			puncher:get_inventory():add_item("main", self.name)
 		end,
 		on_step = function(self, dtime)
 			-- Acelerating, braking, and rotating
@@ -160,7 +205,7 @@ function vehicle_mash:register_car(name, def)
 			local new_velo = {x = 0, y = 0, z = 0}
 			local new_acce = {x = 0, y = 0, z = 0}
 
-			if def.is_boat then
+			if self.is_boat then
 				p.y = p.y - 0.5
 				if not is_water(p) then
 					local nodedef = minetest.registered_nodes[minetest.get_node(p).name]
@@ -206,24 +251,22 @@ function vehicle_mash:register_car(name, def)
 			end
 			self.object:setvelocity(new_velo)
 			self.object:setacceleration(new_acce)
-
-			if def.is_boat then
+			if self.is_boat then
 				-- if boat comes to sudden stop then it has crashed, destroy boat and drop 3x wood
 				if self.v2 - self.v >= 3 then
 					if self.driver then
-						local name = self.driver:get_player_name()
-						self.driver:set_detach()
-						default.player_attached[name] = false
-						default.player_set_animation(self.driver, "stand" , 30)
+						self.driver = DetachPlayer(self, self.driver, true)
 					end
 					local pos = self.object:getpos()
 					self.object:remove()
-					minetest.add_item(pos, def.drop_on_destroy)
+					minetest.add_item(pos, self.drop_on_destroy)
 				end
 				self.v2 = self.v
 			end
-		end,
+		end
 	})
+
+	local onplace_position_adj = def.onplace_position_adj
 	minetest.register_craftitem(name, {
 		description = def.description,
 		inventory_image = def.inventory_image,
@@ -235,21 +278,24 @@ function vehicle_mash:register_car(name, def)
 				return
 			end
 			if def.is_boat then
-				if not is_water(pointed_thing.under) then
+				if is_water(pointed_thing.under) then
+					pointed_thing.under.y = pointed_thing.under.y + 0.5
+					minetest.add_entity(pointed_thing.under, name)
+				else
 					return
 				end
-				pointed_thing.under.y = pointed_thing.under.y + 0.5
-				minetest.add_entity(pointed_thing.under, name)
 			else
-				pointed_thing.above.y = pointed_thing.above.y + def.onplace_position_adj
+				pointed_thing.above.y = pointed_thing.above.y + onplace_position_adj
 				minetest.env:add_entity(pointed_thing.above, name)
 			end
 			itemstack:take_item()
 			return itemstack
-		end,
+		end
 	})
+
 --	minetest.register_craft({
 --		output = name,
---		recipe = def.recipe,
+--		recipe = def.recipe
 --	})
 end
+
