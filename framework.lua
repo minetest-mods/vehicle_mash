@@ -96,6 +96,10 @@ function vehicle_mash:register_vehicle(name, def)
 			if not clicker or not clicker:is_player() then
 				return
 			end
+			-- owner set to the player?
+			if not self.owner or self.owner == "" then
+					self.owner = clicker:get_player_name()
+			end
 			-- if there is already a driver
 			if self.driver then
 				-- if clicker is driver detach passenger and driver
@@ -123,7 +127,9 @@ function vehicle_mash:register_vehicle(name, def)
 			-- if there is no driver
 			else
 				-- attach driver
-				self.driver = AttachPlayer(self, clicker, true)
+				if self.owner == clicker:get_player_name() then
+				  self.driver = AttachPlayer(self, clicker, true)
+				end
 			end
 		end,
 		on_activate = function(self, staticdata, dtime_s)
@@ -140,12 +146,14 @@ function vehicle_mash:register_vehicle(name, def)
 			if not puncher or not puncher:is_player() or self.removed or self.driver then
 				return
 			end
-			self.removed = true
-			-- delay remove to ensure player is detached
-			minetest.after(0.1, function()
-				self.object:remove()
-			end)
-			puncher:get_inventory():add_item("main", self.name)
+			if self.owner == puncher:get_player_name() then
+			  self.removed = true
+			  -- delay remove to ensure player is detached
+			  minetest.after(0.1, function()
+			  		self.object:remove()
+			  end)
+			  puncher:get_inventory():add_item("main", self.name)
+			end
 		end,
 		on_step = function(self, dtime)
 			-- Acelerating, braking, and rotating
