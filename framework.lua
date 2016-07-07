@@ -147,7 +147,7 @@ function vehicle_mash:register_vehicle(name, def)
 				return
 			end
 			if self.owner == puncher:get_player_name() 
-			or minetest.get_player_privs(puncher:get_player_name(), {moderator_skins=true}) then
+			or minetest.get_player_privs(puncher:get_player_name(), {basic_privs=true}) then
 			  self.removed = true
 			  -- delay remove to ensure player is detached
 			  minetest.after(0.1, function()
