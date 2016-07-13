@@ -134,13 +134,19 @@ function vehicle_mash:register_vehicle(name, def)
 		end,
 		on_activate = function(self, staticdata, dtime_s)
 			self.object:set_armor_groups({immortal = 1})
-			if staticdata then
-				self.v = tonumber(staticdata)
+			local tmp = minetest.deserialize(staticdata)
+			if tmp then
+				for _,stat in pairs(tmp) do
+					self[_] = stat
+				end 
 			end
 			self.v2 = self.v
 		end,
 		get_staticdata = function(self)
-			return tostring(self.v)
+			return core.serialize({
+			v = self.v,
+			owner = self.owner,
+		})
 		end,
 		on_punch = function(self, puncher, time_from_last_punch, tool_capabilities, dir)
 			if not puncher or not puncher:is_player() or self.removed or self.driver then
