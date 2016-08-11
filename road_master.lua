@@ -3,7 +3,7 @@ local name = "car_road_master"
 
 local definition = {
 	description = "Road Master car",
-	collisionbox = {-1.6, -0.05, -1.3, 1.0, 1, 0.5},
+	collisionbox = {-0.4, -0.05, -0.4, 0.4, 1.5, 0.4},
 	onplace_position_adj = -0.45,
 	is_boat = false,
 	player_rotation = {x=0,y=90,z=0},
