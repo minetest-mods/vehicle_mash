@@ -34,6 +34,7 @@ local function AttachPlayer(self, clicker, is_driver)
 	local attach_at
 	if is_driver then
 		attach_at = self.driver_attach_at
+		clicker:set_eye_offset(self.driver_eye_offset, {x=0, y=0, z=0})
 	else
 		attach_at = self.passenger_attach_at
 		clicker:set_eye_offset(self.passenger_eye_offset, {x=0, y=0, z=0})
@@ -68,6 +69,7 @@ function vehicle_mash:register_vehicle(name, def)
 		is_boat = def.is_boat,
 		player_rotation = def.player_rotation,
 		driver_attach_at = def.driver_attach_at,
+		driver_eye_offset = def.driver_eye_offset,
 		driver_detach_pos_offset = def.driver_detach_pos_offset,
 		number_of_passengers = def.number_of_passengers,
 		passenger_attach_at = def.passenger_attach_at,
