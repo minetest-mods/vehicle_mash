@@ -29,4 +29,4 @@ local definition = {
 }
 
 -- nothing to change down here
-vehicle_mash:register_vehicle("vehicle_mash:"..name, definition)
+vehicle_mash.register_vehicle("vehicle_mash:"..name, definition)

@@ -1,32 +1,25 @@
 
 local name = "car_126r"
+local definition = ...
 
-local definition = {
-	description = "126r car",
-	collisionbox = {-0.7, -0.5, -0.7, 0.7, 0.7, 0.7},
-	onplace_position_adj = 0,
-	is_boat = false,
-	player_rotation = {x=0,y=90,z=0},
-	driver_attach_at = {x=-2,y=10,z=0},
-	driver_eye_offset = {x=0, y=0, z=0},
-	number_of_passengers = 0,
-	passenger_attach_at = {x=0,y=0,z=0},
-	passenger_eye_offset = {x=0, y=0, z=0},
-	inventory_image = "car_126r_inventory.png",
-	wield_image = "car_126r_wield.png",
-	wield_scale = {x=1, y=1, z=1},
-	visual = "mesh",
-	mesh = "car_126r.x",
-	textures = {"car_126r.png"},
-	visual_size = {x=1, y=1},
-	stepheight = 1.1,
-	max_speed_forward = 20,
-	max_speed_reverse = 10,
-	accel = 2,
-	braking = 6,
-	turn_speed = 3,
-	drop_on_destroy = "",
-	recipe = {}
-}
+definition.description = "126r car"
+-- adjust to change how vehicle reacts while driving
+definition.max_speed_forward = 20
+definition.max_speed_reverse = 10
+definition.accel = 3
+definition.braking = 6
+definition.turn_speed = 4
+definition.stepheight = 1.1
+-- model specific stuff
+definition.mesh = "car_126r.x"
+definition.collisionbox = {-0.7, -0.5, -0.7, 0.7, 0.7, 0.7}
+definition.onplace_position_adj = 0
+definition.inventory_image = "car_126r_inventory.png"
+definition.wield_image = "car_126r_wield.png"
+definition.textures = {"car_126r.png"}
+-- player specific stuff
+definition.driver_attach_at = {x=-2,y=10,z=0}
+-- recipe
+definition.recipe = {}
 
-vehicle_mash:register_vehicle("vehicle_mash:"..name, definition)
+vehicle_mash.register_vehicle("vehicle_mash:"..name, definition)

@@ -63,7 +63,7 @@ local function DetachPlayer(self, clicker, is_driver)
 	return nil
 end
 
-function vehicle_mash:register_vehicle(name, def)
+function vehicle_mash.register_vehicle(name, def)
 	minetest.register_entity(name, {
 		collisionbox = def.collisionbox,
 		is_boat = def.is_boat,
@@ -314,12 +314,4 @@ function vehicle_mash:register_vehicle(name, def)
 --		output = name,
 --		recipe = def.recipe
 --	})
-end
-
-function vehicle_mash_table_copy(tbl)
-	local tbl2 = {}
-	for k,v in pairs(tbl) do
-		tbl2[k]=v
-	end
-	return tbl2
 end
