@@ -8,6 +8,7 @@ local definition = {
 	is_boat = false,
 	player_rotation = {x=0,y=90,z=0},
 	driver_attach_at = {x=-2.1,y=3,z=0},
+	driver_eye_offset = {x=0, y=0, z=0},
 	number_of_passengers = 0,
 	passenger_attach_at = {x=0,y=0,z=0},
 	passenger_eye_offset = {x=0, y=0, z=0},

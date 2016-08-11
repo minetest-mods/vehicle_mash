@@ -7,6 +7,7 @@ local definition = {
 	is_boat = false,				-- does vehicle travel on water?
 	player_rotation = {x=0,y=0,z=0},		-- rotate player so they sit facing the correct direction
 	driver_attach_at = {x=0,y=0,z=0},		-- attach the driver at
+	driver_eye_offset = {x=0, y=0, z=0},	-- offset for first person driver view
 	number_of_passengers = 0,			-- testing: 0 for none, do not increase at this time!
 	passenger_attach_at = {x=0,y=0,z=0},		-- attach the passenger, if applicable, at
 	passenger_eye_offset = {x=0, y=0, z=0},		-- offset for first person passenger view
