@@ -17,6 +17,7 @@ dofile(mpath.."/framework.lua")
 -- Cars
 dofile(mpath.."/126r.lua")
 dofile(mpath.."/f1.lua")
+dofile(mpath.."/car01_def.lua")
 dofile(mpath.."/black.lua")
 dofile(mpath.."/blue.lua")
 dofile(mpath.."/brown.lua")
