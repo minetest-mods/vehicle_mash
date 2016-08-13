@@ -5,6 +5,8 @@ local mpath = minetest.get_modpath("vehicle_mash")
 -- load framework
 dofile(mpath.."/framework.lua")
 
+local common_def = {}
+
 -- ***********************
 -- load vehicles down here
 -- ***********************
@@ -12,32 +14,33 @@ dofile(mpath.."/framework.lua")
 -- ** 126r and F1 **
 ------------------------------------------------------------------------------
 -- create Cars common def
-local cars_def = {
+common_def = {
 	--model specific stuff
 	is_boat = false,
 	visual = "mesh",
 	visual_size = {x=1, y=1},
 	wield_scale = {x=1, y=1, z=1},
 	--player specific stuff
-	player_rotation = {x=0,y=90,z=0},
+	player_rotation = {x=0,y=0,z=0},
 	driver_eye_offset = {x=0, y=0, z=0},
 	number_of_passengers = 0,
 	passenger_attach_at = {x=0,y=0,z=0},
 	passenger_eye_offset = {x=0, y=0, z=0},
-	--drop
-	drop_on_destroy = ""
+	--drop and recipe
+	drop_on_destroy = "",
+	recipe = nil
 }
 
--- change definition values in the following files if
--- you want a specific vehicle to act differently
-loadfile(mpath.."/126r.lua")(table.copy(cars_def))
-loadfile(mpath.."/f1.lua")(table.copy(cars_def))
+-- vehicle specific values in the following files
+-- you can override any common values from here
+loadfile(mpath.."/126r.lua")(table.copy(common_def))
+loadfile(mpath.."/f1.lua")(table.copy(common_def))
 
 
 -- ** CAR01s **
 ------------------------------------------------------------------------------
 -- create CAR01 common def
-local car01_def = {
+common_def = {
 	--adjust to change how vehicle reacts while driving
 	max_speed_forward = 10,
 	max_speed_reverse = 5,
@@ -62,36 +65,36 @@ local car01_def = {
 	passenger_eye_offset = {x=4, y=0, z=0},
 	--drop and recipe
 	drop_on_destroy = "",
-	recipe = {}
+	recipe = nil
 }
 
--- change definition values in the following files if
--- you want a specific vehicle to act differently
-loadfile(mpath.."/black.lua")(table.copy(car01_def))
-loadfile(mpath.."/blue.lua")(table.copy(car01_def))
-loadfile(mpath.."/brown.lua")(table.copy(car01_def))
-loadfile(mpath.."/cyan.lua")(table.copy(car01_def))
-loadfile(mpath.."/dark_green.lua")(table.copy(car01_def))
-loadfile(mpath.."/dark_grey.lua")(table.copy(car01_def))
-loadfile(mpath.."/green.lua")(table.copy(car01_def))
-loadfile(mpath.."/grey.lua")(table.copy(car01_def))
-loadfile(mpath.."/magenta.lua")(table.copy(car01_def))
-loadfile(mpath.."/orange.lua")(table.copy(car01_def))
-loadfile(mpath.."/pink.lua")(table.copy(car01_def))
-loadfile(mpath.."/red.lua")(table.copy(car01_def))
-loadfile(mpath.."/violet.lua")(table.copy(car01_def))
-loadfile(mpath.."/white.lua")(table.copy(car01_def))
-loadfile(mpath.."/yellow.lua")(table.copy(car01_def))
-loadfile(mpath.."/hot_rod.lua")(table.copy(car01_def))
-loadfile(mpath.."/nyan_ride.lua")(table.copy(car01_def))
-loadfile(mpath.."/oerkki_bliss.lua")(table.copy(car01_def))
-loadfile(mpath.."/road_master.lua")(table.copy(car01_def))
+-- vehicle specific values in the following files
+-- you can override any common values from here
+loadfile(mpath.."/black.lua")(table.copy(common_def))
+loadfile(mpath.."/blue.lua")(table.copy(common_def))
+loadfile(mpath.."/brown.lua")(table.copy(common_def))
+loadfile(mpath.."/cyan.lua")(table.copy(common_def))
+loadfile(mpath.."/dark_green.lua")(table.copy(common_def))
+loadfile(mpath.."/dark_grey.lua")(table.copy(common_def))
+loadfile(mpath.."/green.lua")(table.copy(common_def))
+loadfile(mpath.."/grey.lua")(table.copy(common_def))
+loadfile(mpath.."/magenta.lua")(table.copy(common_def))
+loadfile(mpath.."/orange.lua")(table.copy(common_def))
+loadfile(mpath.."/pink.lua")(table.copy(common_def))
+loadfile(mpath.."/red.lua")(table.copy(common_def))
+loadfile(mpath.."/violet.lua")(table.copy(common_def))
+loadfile(mpath.."/white.lua")(table.copy(common_def))
+loadfile(mpath.."/yellow.lua")(table.copy(common_def))
+loadfile(mpath.."/hot_rod.lua")(table.copy(common_def))
+loadfile(mpath.."/nyan_ride.lua")(table.copy(common_def))
+loadfile(mpath.."/oerkki_bliss.lua")(table.copy(common_def))
+loadfile(mpath.."/road_master.lua")(table.copy(common_def))
 
 
 -- ** MeseCars **
 ------------------------------------------------------------------------------
 -- create Mesecar common def
-local mese_def = {
+common_def = {
 	--adjust to change how vehicle reacts while driving
 	max_speed_forward = 15,
 	max_speed_reverse = 7,
@@ -104,34 +107,62 @@ local mese_def = {
 	visual = "cube",
 	mesh = "",
 	visual_size = {x=1.5, y=1.5},
-	--visual = "mesh",
-	--mesh = "mesecar.b3d",
-	--visual_size = {x=0.5, y=0.5},
 	wield_scale = {x=1, y=1, z=1},
-	collisionbox = {-0.5, -0.5, -0.5, 0.5, 0.5, 0.5},
-	onplace_position_adj = 0.2,
+	collisionbox = {-0.75, -0.75, -0.75, 0.75, 0.75, 0.75},
+	onplace_position_adj = 0.25,
 	--player specific stuff
 	player_rotation = {x=0,y=0,z=0},
-	driver_attach_at = {x=0,y=0,z=0},
+	driver_attach_at = {x=0,y=2,z=0},
 	driver_eye_offset = {x=0, y=0, z=0},
 	number_of_passengers = 0,
 	passenger_attach_at = {x=0,y=0,z=0},
 	passenger_eye_offset = {x=0, y=0, z=0},
-	--drop
-	drop_on_destroy = ""
+	--drop and recipe
+	drop_on_destroy = "",
+	recipe = nil
 }
 
--- change definition values in the following files if
--- you want a specific vehicle to act differently
-loadfile(mpath.."/mese_blue.lua")(table.copy(mese_def))
-loadfile(mpath.."/mese_pink.lua")(table.copy(mese_def))
-loadfile(mpath.."/mese_purple.lua")(table.copy(mese_def))
-loadfile(mpath.."/mese_Yellow.lua")(table.copy(mese_def))
-------------------------------------------------------------------------------
+-- vehicle specific values in the following files
+-- you can override any common values from here
+loadfile(mpath.."/mese_blue.lua")(table.copy(common_def))
+loadfile(mpath.."/mese_pink.lua")(table.copy(common_def))
+loadfile(mpath.."/mese_purple.lua")(table.copy(common_def))
+loadfile(mpath.."/mese_Yellow.lua")(table.copy(common_def))
 
--- Boats
-dofile(mpath.."/boat.lua")
-dofile(mpath.."/rowboat.lua")
+
+-- ** Boats **
+------------------------------------------------------------------------------
+-- create boats common def
+common_def = {
+	--adjust to change how vehicle reacts while driving
+	max_speed_forward = 3,
+	max_speed_reverse = 3,
+	accel = 3,
+	braking = 3,
+	turn_speed = 3,
+	stepheight = 0,
+	--model specific stuff
+	is_boat = true,
+	visual = "mesh",
+	visual_size = {x=1, y=1},
+	wield_scale = {x=1, y=1, z=1},
+	collisionbox = {-0.5, -0.35, -0.5, 0.5, 0.3, 0.5},
+	onplace_position_adj = 0,
+	textures = {"default_wood.png"},
+	--player specific stuff
+	player_rotation = {x=0, y=0, z=0},
+	driver_attach_at = {x=0,y=11,z=-3},
+	driver_eye_offset = {x=0, y=0, z=0},
+	number_of_passengers = 0,
+	passenger_attach_at = {x=0,y=0,z=0},
+	passenger_eye_offset = {x=0, y=0, z=0}
+}
+
+-- vehicle specific values in the following files
+-- you can override any common values from here
+loadfile(mpath.."/boat.lua")(table.copy(common_def))
+loadfile(mpath.."/rowboat.lua")(table.copy(common_def))
+
 
 -- Hovercraft
 --dofile(mpath.."/hover_blue.lua")

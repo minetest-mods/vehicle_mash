@@ -1,5 +1,5 @@
 ***Vehicles_mash***
-- version: 1.4
+- version: 2.0
 - by blert2112
 
 A merge of all the vehicles from:
@@ -28,12 +28,21 @@ As far as the work I did... It's really just a fork of a fork of a fork of a for
 
 ***Dependencies***
 - Default
+- lib_mount
 
 ***To Do***
 - complete the addition of the hovercraft
 - crafting
 
 ***Change Log***
+v2.0 8/13/2016
+	- converted to use the lib_mount mod for "driving"
+	- enlarged F1 and 126r models x2.5
+	- added yellow Mesecar
+	- updated boat model from default boat mod
+	- various speed/braking/turning/acceleration tweaks
+	- various collision box tweaks
+	- various other tweaks I probably forgot about
 v1.4 5/19/2015
 	- attach (one) passenger added
 	- reorganized vehicle definition file code and added some variables pertaining to passengers

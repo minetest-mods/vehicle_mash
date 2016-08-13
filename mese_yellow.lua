@@ -13,6 +13,5 @@ definition.textures = {
 	"mesecar_car4front.png",
 	"mesecar_car4back.png"
 }
-definition.recipe = {}
 
 vehicle_mash.register_vehicle("vehicle_mash:"..name, definition)
