@@ -127,7 +127,7 @@ common_def = {
 loadfile(mpath.."/mese_blue.lua")(table.copy(common_def))
 loadfile(mpath.."/mese_pink.lua")(table.copy(common_def))
 loadfile(mpath.."/mese_purple.lua")(table.copy(common_def))
-loadfile(mpath.."/mese_Yellow.lua")(table.copy(common_def))
+loadfile(mpath.."/mese_yellow.lua")(table.copy(common_def))
 
 
 -- ** Boats **
