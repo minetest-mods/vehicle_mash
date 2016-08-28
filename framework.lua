@@ -52,24 +52,20 @@ function vehicle_mash.register_vehicle(name, def)
 					-- if passenger detach first
 					if self.passenger then
 						lib_mount.detach(self.passenger, self.offset)
-						self.passenger = nil
 					end
 					-- detach driver
-					lib_mount.detach(clicker, self.offset)
-					self.driver = nil
+					lib_mount.detach(self.driver, self.offset)
 				-- if clicker is not the driver
 				else
 					-- if clicker is pasenger
 					if clicker == self.passenger then
 						-- detach passenger
-						lib_mount.detach(clicker, self.offset)
-						self.passenger = nil
+						lib_mount.detach(self.passenger, self.offset)
 					-- if clicker is not passenger
 					else
 						-- attach passenger if possible
 						if not self.passenger and self.number_of_passengers > 0 then
-							lib_mount.attach(self, clicker, self.passenger_attach_at, self.passenger_eye_offset, self.player_rotation)
-							self.passenger = clicker
+							lib_mount.attach(self, clicker, true)
 						end
 					end
 				end
@@ -77,8 +73,7 @@ function vehicle_mash.register_vehicle(name, def)
 			else
 				-- attach driver
 				if self.owner == clicker:get_player_name() then
-					lib_mount.attach(self, clicker, self.driver_attach_at, self.driver_eye_offset, self.player_rotation)
-					self.driver = clicker
+					lib_mount.attach(self, clicker, false)
 				end
 			end
 		end,
@@ -87,24 +82,29 @@ function vehicle_mash.register_vehicle(name, def)
 			local tmp = minetest.deserialize(staticdata)
 			if tmp then
 				for _,stat in pairs(tmp) do
+					if _ == "owner" then print(stat) end
 					self[_] = stat
 				end 
 			end
+			print("owner: ", self.owner)
 			self.v2 = self.v
 		end,
 		get_staticdata = function(self)
-			return core.serialize({
-			v = self.v,
-			owner = self.owner,
-		})
+			local tmp = {}
+			for _,stat in pairs(self) do
+				local t = type(stat)
+				if  t ~= 'function' and t ~= 'nil' and t ~= 'userdata' then
+					tmp[_] = self[_]
+				end
+			end
+			return core.serialize(tmp)
 		end,
 		on_punch = function(self, puncher, time_from_last_punch, tool_capabilities, dir)
 			if not puncher or not puncher:is_player() or self.removed or self.driver then
 				return
 			end
 			local punchername = puncher:get_player_name()
-			if self.owner == punchername
-			or minetest.get_player_privs(punchername, {basic_privs=true}) then
+			if self.owner == punchername or minetest.get_player_privs(punchername).protection_bypass then
 			  self.removed = true
 			  -- delay remove to ensure player is detached
 			  minetest.after(0.1, function()
