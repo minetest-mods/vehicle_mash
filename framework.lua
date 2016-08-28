@@ -1,6 +1,18 @@
 
 vehicle_mash = {}
 
+local function get_velocity_a(v, yaw, y)
+	local x = math.cos(yaw) * v
+	local z = math.sin(yaw) * v
+	return {x=x, y=y, z=z}
+end
+
+local function get_velocity_b(v, yaw, y)
+	local x = -math.sin(yaw) * v
+	local z =  math.cos(yaw) * v
+	return {x=x, y=y, z=z}
+end
+
 local function is_water(pos)
 	local nn = minetest.get_node(pos).name
 	return minetest.get_item_group(nn, "water") ~= 0
@@ -10,8 +22,8 @@ local drive = lib_mount.drive
 
 function vehicle_mash.register_vehicle(name, def)
 	minetest.register_entity(name, {
-		terrain_type = def.terrain_type,
 		collisionbox = def.collisionbox,
+		is_boat = def.is_boat,
 		player_rotation = def.player_rotation,
 		driver_attach_at = def.driver_attach_at,
 		driver_eye_offset = def.driver_eye_offset,
@@ -26,8 +38,8 @@ function vehicle_mash.register_vehicle(name, def)
 		tiles = def.tiles,
 		visual_size = def.visual_size,
 		stepheight = def.stepheight,
-		max_speed_forward = def.max_speed_forward,
-		max_speed_reverse = def.max_speed_reverse,
+		max_spd_f = def.max_speed_forward,
+		max_spd_r = def.max_speed_reverse,
 		accel = def.accel,
 		braking = def.braking,
 		turn_spd = def.turn_speed,
@@ -36,14 +48,17 @@ function vehicle_mash.register_vehicle(name, def)
 		passenge = nil,
 		v = 0,
 		v2 = 0,
-		mouselook = false,
+		mouselook = 1,
 		physical = true,
 		removed = false,
 		offset = {x=0, y=0, z=0},
-		owner = "",
 		on_rightclick = function(self, clicker)
 			if not clicker or not clicker:is_player() then
 				return
+			end
+			-- owner set to the player?
+			if not self.owner or self.owner == "" then
+					self.owner = clicker:get_player_name()
 			end
 			-- if there is already a driver
 			if self.driver then
@@ -102,9 +117,8 @@ function vehicle_mash.register_vehicle(name, def)
 			if not puncher or not puncher:is_player() or self.removed or self.driver then
 				return
 			end
-			local punchername = puncher:get_player_name()
-			if self.owner == punchername
-			or minetest.get_player_privs(punchername, {basic_privs=true}) then
+			if self.owner == puncher:get_player_name() 
+			or minetest.get_player_privs(puncher:get_player_name(), {basic_privs=true}) then
 			  self.removed = true
 			  -- delay remove to ensure player is detached
 			  minetest.after(0.1, function()
@@ -118,44 +132,34 @@ function vehicle_mash.register_vehicle(name, def)
 		end
 	})
 
-	local can_float = false
-	if def.terrain_type == 2 or def.terrain_type == 3 then
-		can_float = true
-	end
-	
+	local onplace_position_adj = def.onplace_position_adj
 	minetest.register_craftitem(name, {
 		description = def.description,
 		inventory_image = def.inventory_image,
 		wield_image = def.wield_image,
 		wield_scale = def.wield_scale,
-		liquids_pointable = can_float,
+		liquids_pointable = def.is_boat,
 		on_place = function(itemstack, placer, pointed_thing)
 			if pointed_thing.type ~= "node" then
 				return
 			end
 			local ent
-			if minetest.get_item_group(minetest.get_node(pointed_thing.under).name, "liquid") == 0 then
-				if def.terrain_type == 0 or def.terrain_type == 1 or def.terrain_type == 3 then
-					pointed_thing.above.y = pointed_thing.above.y + def.onplace_position_adj
-					ent = minetest.add_entity(pointed_thing.above, name)
-				else
-					return
-				end
-			else
-				if def.terrain_type == 2 or def.terrain_type == 3 then
+			if def.is_boat then
+				if is_water(pointed_thing.under) then
 					pointed_thing.under.y = pointed_thing.under.y + 0.5
 					ent = minetest.add_entity(pointed_thing.under, name)
 				else
 					return
 				end
-				
+			else
+				pointed_thing.above.y = pointed_thing.above.y + onplace_position_adj
+				ent = minetest.add_entity(pointed_thing.above, name)
 			end
 			if ent:get_luaentity().player_rotation.y == 90 then
 				ent:setyaw(placer:get_look_yaw())
 			else
 				ent:setyaw(placer:get_look_yaw() - math.pi/2)
 			end
-			ent:get_luaentity().owner = placer:get_player_name()
 			itemstack:take_item()
 			return itemstack
 		end

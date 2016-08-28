@@ -4,7 +4,7 @@ local definition = ...
 
 definition.description = "126r car"
 -- adjust to change how vehicle reacts while driving
-definition.max_speed_forward = 12
+definition.max_speed_forward = 20
 definition.max_speed_reverse = 10
 definition.accel = 3
 definition.braking = 6

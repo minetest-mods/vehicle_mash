@@ -39,6 +39,7 @@ v2.0 8/13/2016
 	- converted to use the lib_mount mod for "driving"
 	- enlarged F1 and 126r models x2.5
 	- added yellow Mesecar
+	- updated boat model from default boat mod
 	- various speed/braking/turning/acceleration tweaks
 	- various collision box tweaks
 	- various other tweaks I probably forgot about
