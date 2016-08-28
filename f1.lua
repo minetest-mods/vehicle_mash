@@ -4,8 +4,8 @@ local definition = ...
 
 definition.description = "F1 car"
 -- adjust to change how vehicle reacts while driving
-definition.max_speed_forward = 25
-definition.max_speed_reverse = 15
+definition.max_speed_forward = 15
+definition.max_speed_reverse = 7
 definition.accel = 4
 definition.braking = 8
 definition.turn_speed = 4
