@@ -129,7 +129,7 @@ local mesecar_def = {
 loadfile(mpath.."/mese_blue.lua")(table.copy(mesecar_def))
 loadfile(mpath.."/mese_pink.lua")(table.copy(mesecar_def))
 loadfile(mpath.."/mese_purple.lua")(table.copy(mesecar_def))
-loadfile(mpath.."/mese_Yellow.lua")(table.copy(mesecar_def))
+loadfile(mpath.."/mese_yellow.lua")(table.copy(mesecar_def))
 
 
 -- ** Boats **
