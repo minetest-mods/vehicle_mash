@@ -200,6 +200,9 @@ local hover_def = {
 -- vehicle specific values in the following files
 -- you can override any common values from here
 loadfile(mpath.."/hover_blue.lua")(table.copy(hover_def))
+loadfile(mpath.."/hover_green.lua")(table.copy(hover_def))
+loadfile(mpath.."/hover_red.lua")(table.copy(hover_def))
+loadfile(mpath.."/hover_yellow.lua")(table.copy(hover_def))
 
 -- free unneeded global(s)
 core.after(10, function()
