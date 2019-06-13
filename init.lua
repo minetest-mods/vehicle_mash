@@ -60,10 +60,10 @@ local car01_def = {
 	onplace_position_adj = -0.45,
 	--player specific stuff
 	player_rotation = {x=0,y=90,z=0},
-	driver_attach_at = {x=3.5,y=12,z=3.5},
+	driver_attach_at = {x=3.5,y=3.7,z=3.5},
 	driver_eye_offset = {x=-4, y=0, z=0},
 	number_of_passengers = 1,
-	passenger_attach_at = {x=3.5,y=12,z=-3.5},
+	passenger_attach_at = {x=3.5,y=3.7,z=-3.5},
 	passenger_eye_offset = {x=4, y=0, z=0},
 	--drop and recipe
 	drop_on_destroy = "",
@@ -114,7 +114,7 @@ local mesecar_def = {
 	onplace_position_adj = 0.25,
 	--player specific stuff
 	player_rotation = {x=0,y=0,z=0},
-	driver_attach_at = {x=0,y=2,z=0},
+	driver_attach_at = {x=0,y=0,z=-2.0},
 	driver_eye_offset = {x=0, y=0, z=0},
 	number_of_passengers = 0,
 	passenger_attach_at = {x=0,y=0,z=0},
@@ -153,7 +153,7 @@ local boat_def = {
 	textures = {"default_wood.png"},
 	--player specific stuff
 	player_rotation = {x=0, y=0, z=0},
-	driver_attach_at = {x=0,y=11,z=-3},
+	driver_attach_at = {x=0.5,y=1,z=-3},
 	driver_eye_offset = {x=0, y=0, z=0},
 	number_of_passengers = 0,
 	passenger_attach_at = {x=0,y=0,z=0},
@@ -187,7 +187,7 @@ local hover_def = {
 	onplace_position_adj = -0.25,
 	--player specific stuff
 	player_rotation = {x=0,y=90,z=0},
-	driver_attach_at = {x=-2,y=16.5,z=0},
+	driver_attach_at = {x=-2,y=6.3,z=0},
 	driver_eye_offset = {x=0, y=0, z=0},
 	number_of_passengers = 0,
 	passenger_attach_at = {x=0,y=0,z=0},
@@ -200,6 +200,9 @@ local hover_def = {
 -- vehicle specific values in the following files
 -- you can override any common values from here
 loadfile(mpath.."/hover_blue.lua")(table.copy(hover_def))
+loadfile(mpath.."/hover_green.lua")(table.copy(hover_def))
+loadfile(mpath.."/hover_red.lua")(table.copy(hover_def))
+loadfile(mpath.."/hover_yellow.lua")(table.copy(hover_def))
 
 -- free unneeded global(s)
 core.after(10, function()

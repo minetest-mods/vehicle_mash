@@ -18,6 +18,6 @@ definition.inventory_image = "car_126r_inventory.png"
 definition.wield_image = "car_126r_wield.png"
 definition.textures = {"car_126r.png"}
 -- player specific stuff
-definition.driver_attach_at = {x=0,y=10,z=-4}
+definition.driver_attach_at = {x=0,y=0,z=-4}
 
 vehicle_mash.register_vehicle("vehicle_mash:"..name, definition)
