@@ -9,7 +9,7 @@ A merge of all the vehicles from:
 - "Boats" by PilzAdam
 - "Hovercraft" by Stuart Jones
 
-- 27 vehicles currently.
+- 30 vehicles currently.
 - Certain vehicles can now carry passengers. Currently one passenger max.
 
 - Disable vehicles by commenting out it's 'dofile' line in init.lua
