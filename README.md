@@ -1,13 +1,13 @@
-***Vehicle_mash***
-- version: 2.1.0
-- by blert2112
+# **Vehicle_mash**
+- Current version: 2.1.0
+- By blert2112
 
 A merge of all the vehicles from:
-- "Cars" by Radoslaw Slowik
-- "Mesecars" by paramat
-- "Car" by Esteban
-- "Boats" by PilzAdam
-- "Hovercraft" by Stuart Jones
+- "Cars" by Radoslaw Slowik.
+- "Mesecars" by paramat.
+- "Car" by Esteban.
+- "Boats" by PilzAdam.
+- "Hovercraft" by Stuart Jones.
 
 - 30 vehicles currently.
 - Certain vehicles can now carry passengers. Currently one passenger max.
@@ -19,21 +19,36 @@ A merge of all the vehicles from:
 	- change settings in the file you created to reflect the new vehicle
 	- add a new line to init.lua to load the vehicle 'dofile(minetest.get_modpath("vehicle_mash").."/NAME_OF_VEHICLE.lua")'
 
-***Installation***
-- rename folder to "vehicle_mash" if necessary
+## **Installation**
+- Unzip the archive, rename the folder to "vehicle_mash" (without the quotes) and place it in
+../minetest/mods/
 
-***License***
+- GNU/Linux: If you use a system-wide installation place
+it in ~/.minetest/mods/.
+
+- If you only want this to be used in a single world, place
+the folder in worldmods/ in your world directory.
+
+
+For further information or help, see:
+http://wiki.minetest.net/wiki/Installing_Mods
+
+## **License**
 All licenses of previous works, of course, apply. (see credits below)
 As far as the work I did... It's really just a fork of a fork of a fork of a fork, tossed it all into a blender and spun it on puree for a bit. Baked it for a while and set it on the counter to cool. What I mean is, make what you will of it, it matters not to me.
 
-***Dependencies***
-- default (included in Minetest Game)
+## **Dependencies**
+- default (included in minetest_game)
 - lib_mount
 
-***To Do***
+## **Requirements**
+* "vehicle_mash" 2.1.0 for MT/MTG 5.0.0+.
+* "vehicle_mash" 2.0 for MT/MTG 0.4.16+ (may work on older versions).
+
+## **To Do**
 - crafting
 
-***Changelog*** 
+## **Changelog** 
 
 
 v2.1 6/10/2019
@@ -89,7 +104,13 @@ v1.0 4/24/2015
 
 
 
-***CREDIT WHERE CREDIT IS DUE***
+## **Bugs, suggestions and new features**
+Report bugs or suggest ideas by [creating an issue](https://github.com/blert2112/vehicle_mash/issues/new).
+
+If you know how to fix an issue, consider opening a [pull request](https://github.com/blert2112/vehicle_mash/compare).
+
+
+## **Credit where credit is due**
 - F1 and 126R cars from: "Cars" by Radoslaw Slowik
 	- https://forum.minetest.net/viewtopic.php?f=9&t=8698
 	- License: Code WTFPL, modeles/textures CC BY-NC-ND 4.0
