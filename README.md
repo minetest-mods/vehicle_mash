@@ -31,7 +31,7 @@ the folder in worldmods/ in your world directory.
 
 
 For further information or help, see:
-http://wiki.minetest.net/wiki/Installing_Mods
+http://wiki.minetest.net/Installing_Mods
 
 ## **License**
 All licenses of previous works, of course, apply. (see credits below)
