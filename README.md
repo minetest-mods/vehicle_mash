@@ -20,7 +20,7 @@ A merge of all the vehicles from:
 	- add a new line to init.lua to load the vehicle 'dofile(minetest.get_modpath("vehicle_mash").."/NAME_OF_VEHICLE.lua")'
 
 ## **Installation**
-- Unzip the archive, rename the folder to "vehicle_mash" (without the quotes) and place it in
+- Unzip the archive, rename the folder to "vehicle_mash" (**without the quotes**) and place it in
 ../minetest/mods/
 
 - GNU/Linux: If you use a system-wide installation place
@@ -31,7 +31,7 @@ the folder in worldmods/ in your world directory.
 
 
 For further information or help, see:
-http://wiki.minetest.net/Installing_Mods
+https://wiki.minetest.net/Installing_Mods
 
 ## **License**
 All licenses of previous works, of course, apply. (see credits below)
@@ -43,9 +43,9 @@ As far as the work I did... It's really just a fork of a fork of a fork of a for
 
 ## **Requirements**
 * "vehicle_mash" 2.1.0 for MT/MTG 5.0.0+.
-* "vehicle_mash" 2.0 for MT/MTG 0.4.16+ (may work on older versions).
+* "vehicle_mash" 2.0 for MT/MTG 0.4.12+ (may work on older versions).
 
-## **To Do**
+## **To-Do**
 - crafting
 
 ## **Changelog** 
@@ -56,7 +56,7 @@ v2.1 6/10/2019
 *	 Fix attachment positions for drivers/passengers on all vehicles.
 *	 Adds red, green, and yellow hovercrafts.
 *	 Use "mod.conf" for name, description and dependencies.
-*	 This version requieres MT/MTG 5.0.0 and/or above to work.
+*	 Support for MT/MTG 5.0.0+ (may not work with official dev-builds).
 	
 	
 v2.0 8/13/2016
@@ -68,7 +68,7 @@ v2.0 8/13/2016
 *	 various speed/braking/turning/acceleration tweaks
 *	 various collision box tweaks
 *	 various other tweaks I probably forgot about
-*	 last version supporting the 0.4-series.
+*	 last version supporting MT/MTG 0.4.12+.
 	
 		
 v1.4 5/19/2015
@@ -105,8 +105,7 @@ v1.0 4/24/2015
 
 
 ## **Bugs, suggestions and new features**
-Report bugs or suggest ideas by [creating an issue](https://github.com/blert2112/vehicle_mash/issues/new).
-
+Report bugs or suggest ideas by [creating an issue](https://github.com/blert2112/vehicle_mash/issues/new).      
 If you know how to fix an issue, consider opening a [pull request](https://github.com/blert2112/vehicle_mash/compare).
 
 
