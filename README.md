@@ -1,6 +1,8 @@
-# **Vehicle_mash**
-- Current version: 2.1.0
-- By blert2112
+# Vehicle Mash
+[![Build status](https://github.com/Panquesito7/vehicle_mash/workflows/build/badge.svg)](https://github.com/Panquesito7/vehicle_mash/actions)
+
+- Current version: 2.2
+- By [blert2112](https://github.com/blert2112), and improvements by [Panquesito7](https://github.com/Panquesito7).
 
 A merge of all the vehicles from:
 - "Cars" by Radoslaw Slowik.
@@ -17,10 +19,10 @@ A merge of all the vehicles from:
 	- create/aquire vehicle model and textures
 	- create, and name appropriately, a new .lua file for the vehicle based on one of the existing ones
 	- change settings in the file you created to reflect the new vehicle
-	- add a new line to init.lua to load the vehicle 'dofile(minetest.get_modpath("vehicle_mash").."/NAME_OF_VEHICLE.lua")'
+	- add a new line to init.lua to load the vehicle `dofile(minetest.get_modpath("vehicle_mash") .. "/NAME_OF_VEHICLE.lua")`
 
-## **Installation**
-- Unzip the archive, rename the folder to "vehicle_mash" (**without the quotes**) and place it in
+## Installation
+- Unzip the archive, rename the folder to `vehicle_mash` and place it in
 ../minetest/mods/
 
 - GNU/Linux: If you use a system-wide installation place
@@ -29,34 +31,41 @@ it in ~/.minetest/mods/.
 - If you only want this to be used in a single world, place
 the folder in worldmods/ in your world directory.
 
-
-For further information or help, see:
+For further information or help, see:\
 https://wiki.minetest.net/Installing_Mods
 
-## **License**
+## License
 All licenses of previous works, of course, apply. (see credits below)
 As far as the work I did... It's really just a fork of a fork of a fork of a fork, tossed it all into a blender and spun it on puree for a bit. Baked it for a while and set it on the counter to cool. What I mean is, make what you will of it, it matters not to me.
 
-## **Dependencies**
-- default (included in minetest_game)
-- lib_mount
+## Dependencies
+- `default` (included in [Minetest Game](https://github.com/minetest/minetest_game))
+- [`lib_mount`](https://github.com/blert2112/lib_mount)
+  - An updated and maintained version can be found [here](https://github.com/Panquesito7/lib_mount).
 
-## **Requirements**
-* "vehicle_mash" 2.1.0 for MT/MTG 5.0.0+.
-* "vehicle_mash" 2.0 for MT/MTG 0.4.12+ (may work on older versions).
+## Requirements
+- `vehicle_mash` 2.1.0 for MT 5.0.0+.
+- `vehicle_mash` 2.0 for MT 0.4.12+ (may work on older versions).
 
-## **To-Do**
+## TODO
 - crafting
 
-## **Changelog** 
+## Changelog
 
+v2.2 5/15/2020
+
+* Move files to a folder of its own.
+* Add GitHub workflow and LuaCheck.
+* Add `settingtypes.txt` to select enabled cars.
+* Improve `README.md`.
+* Short a bit the code.
 
 v2.1 6/10/2019
 
 *	 Fix attachment positions for drivers/passengers on all vehicles.
 *	 Adds red, green, and yellow hovercrafts.
-*	 Use "mod.conf" for name, description and dependencies.
-*	 Support for MT/MTG 5.0.0+ (may not work with official dev-builds).
+*	 Use `mod.conf` for name, description and dependencies.
+*	 Support for MT 5.0.0+.
 	
 	
 v2.0 8/13/2016
@@ -68,7 +77,7 @@ v2.0 8/13/2016
 *	 various speed/braking/turning/acceleration tweaks
 *	 various collision box tweaks
 *	 various other tweaks I probably forgot about
-*	 last version supporting MT/MTG 0.4.12+.
+*	 last version supporting MT 0.4.12+.
 	
 		
 v1.4 5/19/2015
@@ -104,12 +113,11 @@ v1.0 4/24/2015
 
 
 
-## **Bugs, suggestions and new features**
+## Bugs, suggestions and new features
 Report bugs or suggest ideas by [creating an issue](https://github.com/blert2112/vehicle_mash/issues/new).      
 If you know how to fix an issue, consider opening a [pull request](https://github.com/blert2112/vehicle_mash/compare).
 
-
-## **Credit where credit is due**
+## Credit where credit is due
 - F1 and 126R cars from: "Cars" by Radoslaw Slowik
 	- https://forum.minetest.net/viewtopic.php?f=9&t=8698
 	- License: Code WTFPL, modeles/textures CC BY-NC-ND 4.0
@@ -139,6 +147,7 @@ If you know how to fix an issue, consider opening a [pull request](https://githu
 			- CARTOON-BING-LOW by kantouth - CC-BY-3.0
 			- All other sounds: Copyright Stuart Jones - CC-BY-SA
 
-I am sure many others deserve mention. If you feel left out let me know and I will add you in.
+I am sure many others deserve mention.\
+If you feel left out let me know and I will add you in.
 
 Enjoy!

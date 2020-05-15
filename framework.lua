@@ -1,11 +1,5 @@
 
 vehicle_mash = {}
-
-local function is_water(pos)
-	local nn = minetest.get_node(pos).name
-	return minetest.get_item_group(nn, "water") ~= 0
-end
-
 local drive = lib_mount.drive
 
 function vehicle_mash.register_vehicle(name, def)
@@ -84,7 +78,7 @@ function vehicle_mash.register_vehicle(name, def)
 				for _,stat in pairs(tmp) do
 					if _ == "owner" then print(stat) end
 					self[_] = stat
-				end 
+				end
 			end
 			print("owner: ", self.owner)
 			self.v2 = self.v
@@ -108,8 +102,8 @@ function vehicle_mash.register_vehicle(name, def)
 			  self.removed = true
 			  -- delay remove to ensure player is detached
 			  minetest.after(0.1, function()
-			  		self.object:remove()
-			  end)
+				self.object:remove()
+			end)
 			  puncher:get_inventory():add_item("main", self.name)
 			end
 		end,
@@ -122,7 +116,7 @@ function vehicle_mash.register_vehicle(name, def)
 	if def.terrain_type == 2 or def.terrain_type == 3 then
 		can_float = true
 	end
-	
+
 	minetest.register_craftitem(name, {
 		description = def.description,
 		inventory_image = def.inventory_image,
@@ -148,7 +142,7 @@ function vehicle_mash.register_vehicle(name, def)
 				else
 					return
 				end
-				
+
 			end
 			if ent:get_luaentity().player_rotation.y == 90 then
 				ent:setyaw(placer:get_look_yaw())
