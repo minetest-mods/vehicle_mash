@@ -1,5 +1,5 @@
 
--- get mod path
+-- get modpath
 local mpath = minetest.get_modpath("vehicle_mash")
 
 -- load framework
@@ -33,11 +33,16 @@ local cars_def = {
 	recipe = nil
 }
 
--- vehicle specific values in the following files
--- you can override any common values from here
-loadfile(mpath.."/126r.lua")(table.copy(cars_def))
-loadfile(mpath.."/f1.lua")(table.copy(cars_def))
+local other_car_names = {
+	"126r",
+	"f1",
+}
 
+for _, name in ipairs(other_car_names) do
+	if minetest.settings:get_bool("vehicle_mash.enable_" .. name .. "_car") then
+		loadfile(mpath.. "/other_cars/" .. name .. ".lua")(table.copy(cars_def))
+	end
+end
 
 -- ** CAR01s **
 ------------------------------------------------------------------------------
@@ -60,38 +65,31 @@ local car01_def = {
 	onplace_position_adj = -0.45,
 	--player specific stuff
 	player_rotation = {x=0,y=90,z=0},
-	driver_attach_at = {x=3.5,y=12,z=3.5},
+	driver_attach_at = {x=3.5,y=3.7,z=3.5},
 	driver_eye_offset = {x=-4, y=0, z=0},
 	number_of_passengers = 1,
-	passenger_attach_at = {x=3.5,y=12,z=-3.5},
+	passenger_attach_at = {x=3.5,y=3.7,z=-3.5},
 	passenger_eye_offset = {x=4, y=0, z=0},
 	--drop and recipe
 	drop_on_destroy = "",
 	recipe = nil
 }
 
--- vehicle specific values in the following files
--- you can override any common values from here
-loadfile(mpath.."/black.lua")(table.copy(car01_def))
-loadfile(mpath.."/blue.lua")(table.copy(car01_def))
-loadfile(mpath.."/brown.lua")(table.copy(car01_def))
-loadfile(mpath.."/cyan.lua")(table.copy(car01_def))
-loadfile(mpath.."/dark_green.lua")(table.copy(car01_def))
-loadfile(mpath.."/dark_grey.lua")(table.copy(car01_def))
-loadfile(mpath.."/green.lua")(table.copy(car01_def))
-loadfile(mpath.."/grey.lua")(table.copy(car01_def))
-loadfile(mpath.."/magenta.lua")(table.copy(car01_def))
-loadfile(mpath.."/orange.lua")(table.copy(car01_def))
-loadfile(mpath.."/pink.lua")(table.copy(car01_def))
-loadfile(mpath.."/red.lua")(table.copy(car01_def))
-loadfile(mpath.."/violet.lua")(table.copy(car01_def))
-loadfile(mpath.."/white.lua")(table.copy(car01_def))
-loadfile(mpath.."/yellow.lua")(table.copy(car01_def))
-loadfile(mpath.."/hot_rod.lua")(table.copy(car01_def))
-loadfile(mpath.."/nyan_ride.lua")(table.copy(car01_def))
-loadfile(mpath.."/oerkki_bliss.lua")(table.copy(car01_def))
-loadfile(mpath.."/road_master.lua")(table.copy(car01_def))
+local car01_names = {
+	"black", "brown", "cyan",
+	"dark_green", "dark_grey", "green",
+	"grey", "magenta", "orange",
+	"pink", "red", "violet",
+	"white", "yellow", "hot_rod",
+	"nyan_ride", "oerkki_bliss", "road_master",
+}
 
+-- Load all CAR01's cars if enabled
+for _, name in ipairs(car01_names) do
+	if minetest.settings:get_bool("vehicle_mash.enable_" .. name .. "_car") then
+		loadfile(mpath .. "/car01s/" .. name .. ".lua")(table.copy(car01_def))
+	end
+end
 
 -- ** MeseCars **
 ------------------------------------------------------------------------------
@@ -114,7 +112,7 @@ local mesecar_def = {
 	onplace_position_adj = 0.25,
 	--player specific stuff
 	player_rotation = {x=0,y=0,z=0},
-	driver_attach_at = {x=0,y=2,z=0},
+	driver_attach_at = {x=0,y=0,z=-2.0},
 	driver_eye_offset = {x=0, y=0, z=0},
 	number_of_passengers = 0,
 	passenger_attach_at = {x=0,y=0,z=0},
@@ -124,13 +122,19 @@ local mesecar_def = {
 	recipe = nil
 }
 
--- vehicle specific values in the following files
--- you can override any common values from here
-loadfile(mpath.."/mese_blue.lua")(table.copy(mesecar_def))
-loadfile(mpath.."/mese_pink.lua")(table.copy(mesecar_def))
-loadfile(mpath.."/mese_purple.lua")(table.copy(mesecar_def))
-loadfile(mpath.."/mese_yellow.lua")(table.copy(mesecar_def))
+local mesecar_names = {
+	"mese_blue",
+	"mese_pink",
+	"mese_purple",
+	"mese_yellow",
+}
 
+-- Load all Mese Cars if enabled
+for _, name in ipairs(mesecar_names) do
+	if minetest.settings:get_bool("vehicle_mash.enable_" .. name .. "_car") then
+		loadfile(mpath .. "/mesecars/mese_" .. name .. ".lua")(table.copy(mesecar_def))
+	end
+end
 
 -- ** Boats **
 ------------------------------------------------------------------------------
@@ -153,18 +157,24 @@ local boat_def = {
 	textures = {"default_wood.png"},
 	--player specific stuff
 	player_rotation = {x=0, y=0, z=0},
-	driver_attach_at = {x=0,y=11,z=-3},
+	driver_attach_at = {x=0.5,y=1,z=-3},
 	driver_eye_offset = {x=0, y=0, z=0},
 	number_of_passengers = 0,
 	passenger_attach_at = {x=0,y=0,z=0},
 	passenger_eye_offset = {x=0, y=0, z=0}
 }
 
--- vehicle specific values in the following files
--- you can override any common values from here
-loadfile(mpath.."/boat.lua")(table.copy(boat_def))
-loadfile(mpath.."/rowboat.lua")(table.copy(boat_def))
+local boat_names = {
+	"boat",
+	"rowboat",
+}
 
+-- Load boats if enabled
+for _, name in ipairs(boat_names) do
+	if minetest.settings:get_bool("vehicle_mash.enable_" .. name) then
+		loadfile(mpath .. "/boats/" .. name .. ".lua")(table.copy(boat_def))
+	end
+end
 
 -- ** Hovercraft **
 ------------------------------------------------------------------------------
@@ -187,7 +197,7 @@ local hover_def = {
 	onplace_position_adj = -0.25,
 	--player specific stuff
 	player_rotation = {x=0,y=90,z=0},
-	driver_attach_at = {x=-2,y=16.5,z=0},
+	driver_attach_at = {x=-2,y=6.3,z=0},
 	driver_eye_offset = {x=0, y=0, z=0},
 	number_of_passengers = 0,
 	passenger_attach_at = {x=0,y=0,z=0},
@@ -197,9 +207,19 @@ local hover_def = {
 	recipe = nil
 }
 
--- vehicle specific values in the following files
--- you can override any common values from here
-loadfile(mpath.."/hover_blue.lua")(table.copy(hover_def))
+local hover_names = {
+	"hover_blue",
+	"hover_green",
+	"hover_red",
+	"hover_yellow",
+}
+
+-- Load hovercrafts if enabled
+for _, name in ipairs(hover_names) do
+	if minetest.settings:get_bool("vehicle_mash.enable_" .. name) then
+		loadfile(mpath .. "/hovers/" .. name .. ".lua")(table.copy(hover_def))
+	end
+end
 
 -- free unneeded global(s)
 core.after(10, function()
