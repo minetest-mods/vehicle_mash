@@ -76,7 +76,7 @@ local car01_def = {
 }
 
 local car01_names = {
-	"black", "brown", "cyan",
+	"black", "blue", "brown", "cyan",
 	"dark_green", "dark_grey", "green",
 	"grey", "magenta", "orange",
 	"pink", "red", "violet",

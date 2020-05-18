@@ -6,6 +6,7 @@ vehicle_mash.enable_f1_car (Enables F1 car) bool true
 # CAR01's cars
 
 vehicle_mash.enable_black_car (Enables black car) bool true
+vehicle_mash.enable_blue_car (Enables blue car) bool true
 vehicle_mash.enable_brown_car (Enables brown car) bool true
 vehicle_mash.enable_cyan_car (Enables cyan car) bool true
 vehicle_mash.enable_dark_green_car (Enables dark green car) bool true
