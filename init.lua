@@ -39,7 +39,8 @@ local other_car_names = {
 }
 
 for _, name in ipairs(other_car_names) do
-	if minetest.settings:get_bool("vehicle_mash.enable_" .. name .. "_car") then
+	local check_enabled = minetest.settings:get_bool("vehicle_mash.enable_" .. name .. "_car")
+	if check_enabled or check_enabled == nil then
 		loadfile(mpath.. "/other_cars/" .. name .. ".lua")(table.copy(cars_def))
 	end
 end
@@ -86,7 +87,8 @@ local car01_names = {
 
 -- Load all CAR01's cars if enabled
 for _, name in ipairs(car01_names) do
-	if minetest.settings:get_bool("vehicle_mash.enable_" .. name .. "_car") then
+	local check_enabled = minetest.settings:get_bool("vehicle_mash.enable_" .. name .. "_car")
+	if check_enabled or check_enabled == nil then
 		loadfile(mpath .. "/car01s/" .. name .. ".lua")(table.copy(car01_def))
 	end
 end
@@ -131,8 +133,9 @@ local mesecar_names = {
 
 -- Load all Mese Cars if enabled
 for _, name in ipairs(mesecar_names) do
-	if minetest.settings:get_bool("vehicle_mash.enable_" .. name .. "_car") then
-		loadfile(mpath .. "/mesecars/mese_" .. name .. ".lua")(table.copy(mesecar_def))
+	local check_enabled = minetest.settings:get_bool("vehicle_mash.enable_" .. name .. "_car")
+	if check_enabled or check_enabled == nil then
+		loadfile(mpath .. "/mesecars/" .. name .. ".lua")(table.copy(mesecar_def))
 	end
 end
 
@@ -171,7 +174,8 @@ local boat_names = {
 
 -- Load boats if enabled
 for _, name in ipairs(boat_names) do
-	if minetest.settings:get_bool("vehicle_mash.enable_" .. name) then
+	local check_enabled = minetest.settings:get_bool("vehicle_mash.enable_" .. name)
+	if check_enabled or check_enabled == nil then
 		loadfile(mpath .. "/boats/" .. name .. ".lua")(table.copy(boat_def))
 	end
 end
@@ -216,7 +220,8 @@ local hover_names = {
 
 -- Load hovercrafts if enabled
 for _, name in ipairs(hover_names) do
-	if minetest.settings:get_bool("vehicle_mash.enable_" .. name) then
+	local check_enabled = minetest.settings:get_bool("vehicle_mash.enable_" .. name)
+	if check_enabled or check_enabled == nil then
 		loadfile(mpath .. "/hovers/" .. name .. ".lua")(table.copy(hover_def))
 	end
 end
