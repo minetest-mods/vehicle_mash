@@ -40,8 +40,7 @@ As far as the work I did... It's really just a fork of a fork of a fork of a for
 
 ## Dependencies
 - `default` (included in [Minetest Game](https://github.com/minetest/minetest_game))
-- [`lib_mount`](https://github.com/blert2112/lib_mount)
-  - An updated and maintained version can be found [here](https://github.com/Panquesito7/lib_mount).
+- [`lib_mount`](https://github.com/Panquesito7/lib_mount)
 
 ## Requirements
 - `vehicle_mash` 2.1.0 for MT 5.0.0+.
