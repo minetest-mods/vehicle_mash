@@ -3,10 +3,13 @@
 local mpath = minetest.get_modpath("vehicle_mash")
 
 -- load framework
-dofile(mpath.."/framework.lua")
+dofile(mpath .. "/framework.lua")
 
 -- load crafts
---dofile(mpath.."/crafts.lua")
+local craft_check = minetest.settings:get_bool("vehicle_mash.enable_crafts")
+if craft_check or craft_check == nil then
+	dofile(mpath .. "/crafts.lua")
+end
 
 -- ***********************
 -- load vehicles down here
@@ -28,6 +31,13 @@ local cars_def = {
 	number_of_passengers = 0,
 	passenger_attach_at = {x=0,y=0,z=0},
 	passenger_eye_offset = {x=0, y=0, z=0},
+
+	passenger2_attach_at = {x=0,y=0,z=0},
+	passenger2_eye_offset = {x=0, y=0, z=0},
+
+	passenger3_attach_at = {x=0,y=0,z=0},
+	passenger3_eye_offset = {x=0, y=0, z=0},
+
 	--drop and recipe
 	drop_on_destroy = "",
 	recipe = nil
@@ -68,9 +78,16 @@ local car01_def = {
 	player_rotation = {x=0,y=90,z=0},
 	driver_attach_at = {x=3.5,y=3.7,z=3.5},
 	driver_eye_offset = {x=-4, y=0, z=0},
-	number_of_passengers = 1,
+	number_of_passengers = 3,
 	passenger_attach_at = {x=3.5,y=3.7,z=-3.5},
 	passenger_eye_offset = {x=4, y=0, z=0},
+
+	passenger2_attach_at = {x=-4,y=3.7,z=3.5},
+	passenger2_eye_offset = {x=-4, y=3, z=0},
+
+	passenger3_attach_at = {x=-4,y=3.7,z=-3.5},
+	passenger3_eye_offset = {x=4, y=3, z=0},
+
 	--drop and recipe
 	drop_on_destroy = "",
 	recipe = nil
@@ -119,6 +136,13 @@ local mesecar_def = {
 	number_of_passengers = 0,
 	passenger_attach_at = {x=0,y=0,z=0},
 	passenger_eye_offset = {x=0, y=0, z=0},
+
+	passenger2_attach_at = {x=0,y=0,z=0},
+	passenger2_eye_offset = {x=0, y=0, z=0},
+
+	passenger3_attach_at = {x=0,y=0,z=0},
+	passenger3_eye_offset = {x=0, y=0, z=0},
+
 	--drop and recipe
 	drop_on_destroy = "",
 	recipe = nil
@@ -164,7 +188,13 @@ local boat_def = {
 	driver_eye_offset = {x=0, y=0, z=0},
 	number_of_passengers = 0,
 	passenger_attach_at = {x=0,y=0,z=0},
-	passenger_eye_offset = {x=0, y=0, z=0}
+	passenger_eye_offset = {x=0, y=0, z=0},
+
+	passenger2_attach_at = {x=0,y=0,z=0},
+	passenger2_eye_offset = {x=0, y=0, z=0},
+
+	passenger3_attach_at = {x=0,y=0,z=0},
+	passenger3_eye_offset = {x=0, y=0, z=0}
 }
 
 local boat_names = {
@@ -206,6 +236,13 @@ local hover_def = {
 	number_of_passengers = 0,
 	passenger_attach_at = {x=0,y=0,z=0},
 	passenger_eye_offset = {x=0, y=0, z=0},
+
+	passenger2_attach_at = {x=0,y=0,z=0},
+	passenger2_eye_offset = {x=0, y=0, z=0},
+
+	passenger3_attach_at = {x=0,y=0,z=0},
+	passenger3_eye_offset = {x=0, y=0, z=0},
+
 	--drop and recipe
 	drop_on_destroy = "",
 	recipe = nil

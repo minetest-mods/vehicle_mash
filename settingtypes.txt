@@ -1,3 +1,7 @@
+# Normal settings
+
+vehicle_mash.enable_crafts (Allows crafting vehicles) bool true
+
 # Other cars
 
 vehicle_mash.enable_126r_car (Enables 126r car) bool true

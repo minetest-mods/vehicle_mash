@@ -2,6 +2,8 @@
 vehicle_mash = {}
 local drive = lib_mount.drive
 
+local passenger_count = 1
+
 function vehicle_mash.register_vehicle(name, def)
 	minetest.register_entity(name, {
 		terrain_type = def.terrain_type,
@@ -14,6 +16,15 @@ function vehicle_mash.register_vehicle(name, def)
 		passenger_attach_at = def.passenger_attach_at,
 		passenger_eye_offset = def.passenger_eye_offset,
 		passenger_detach_pos_offset = def.passenger_detach_pos_offset,
+
+		passenger2_attach_at = def.passenger2_attach_at,
+		passenger2_eye_offset = def.passenger2_eye_offset,
+		passenger2_detach_pos_offset = def.passenger2_detach_pos_offset,
+
+		passenger3_attach_at = def.passenger3_attach_at,
+		passenger3_eye_offset = def.passenger3_eye_offset,
+		passenger3_detach_pos_offset = def.passenger3_detach_pos_offset,
+
 		visual = def.visual,
 		mesh = def.mesh,
 		textures = def.textures,
@@ -43,23 +54,32 @@ function vehicle_mash.register_vehicle(name, def)
 			if self.driver then
 				-- if clicker is driver detach passenger and driver
 				if clicker == self.driver then
-					-- if passenger detach first
 					if self.passenger then
+						-- if passenger detach first
 						lib_mount.detach(self.passenger, self.offset)
+						passenger_count = passenger_count - 1
 					end
 					-- detach driver
 					lib_mount.detach(self.driver, self.offset)
 				-- if clicker is not the driver
 				else
-					-- if clicker is pasenger
+					-- if clicker is passenger
 					if clicker == self.passenger then
 						-- detach passenger
 						lib_mount.detach(self.passenger, self.offset)
+						passenger_count = passenger_count - 1
 					-- if clicker is not passenger
 					else
-						-- attach passenger if possible
-						if not self.passenger and self.number_of_passengers > 0 then
-							lib_mount.attach(self, clicker, true)
+						-- attach passengers if possible
+						if passenger_count == 1 and self.number_of_passengers >= 1 then
+							lib_mount.attach(self, clicker, true, 1)
+							passenger_count = passenger_count + 1
+						elseif passenger_count == 2 and self.number_of_passengers >= 2 then
+							lib_mount.attach(self, clicker, true, 2)
+							passenger_count = passenger_count + 1
+						elseif passenger_count == 3 and self.number_of_passengers >= 3 then
+							lib_mount.attach(self, clicker, true, 3)
+							passenger_count = passenger_count + 1
 						end
 					end
 				end
@@ -67,7 +87,7 @@ function vehicle_mash.register_vehicle(name, def)
 			else
 				-- attach driver
 				if self.owner == clicker:get_player_name() then
-					lib_mount.attach(self, clicker, false)
+					lib_mount.attach(self, clicker, false, 0)
 				end
 			end
 		end,
@@ -145,9 +165,9 @@ function vehicle_mash.register_vehicle(name, def)
 
 			end
 			if ent:get_luaentity().player_rotation.y == 90 then
-				ent:setyaw(placer:get_look_yaw())
+				ent:set_yaw(placer:get_look_horizontal())
 			else
-				ent:setyaw(placer:get_look_yaw() - math.pi/2)
+				ent:set_yaw(placer:get_look_horizontal() - math.pi/2)
 			end
 			ent:get_luaentity().owner = placer:get_player_name()
 			itemstack:take_item()

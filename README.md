@@ -1,24 +1,25 @@
 # Vehicle Mash [![Build status](https://github.com/Panquesito7/vehicle_mash/workflows/build/badge.svg)](https://github.com/Panquesito7/vehicle_mash/actions)
 
-- Current version: 2.2
+- Current version: 2.2.1
 - By [blert2112](https://github.com/blert2112), and improvements by [Panquesito7](https://github.com/Panquesito7).
 
 A merge of all the vehicles from:
-- "Cars" by Radoslaw Slowik.
-- "Mesecars" by paramat.
-- "Car" by Esteban.
-- "Boats" by PilzAdam.
-- "Hovercraft" by Stuart Jones.
+* "Cars" by Radoslaw Slowik.
+* "Mesecars" by paramat.
+* "Car" by Esteban.
+* "Boats" by PilzAdam.
+* "Hovercraft" by Stuart Jones.
 
 - 30 vehicles currently.
-- Certain vehicles can now carry passengers. Currently one passenger max.
+- All CAR01's can carry 3 passengers.
 
-- Disable vehicles by commenting out it's 'dofile' line in init.lua
-- Adding new vehicles is a simple matter of:
-	- create/aquire vehicle model and textures
-	- create, and name appropriately, a new .lua file for the vehicle based on one of the existing ones
-	- change settings in the file you created to reflect the new vehicle
-	- add a new line to init.lua to load the vehicle `dofile(minetest.get_modpath("vehicle_mash") .. "/NAME_OF_VEHICLE.lua")`
+* Disable vehicles by going to your Minetest Settings.
+* Adding new vehicles is a simple matter of:
+	* Create/acquire vehicle model and textures.
+	* Create, and name appropriately, a new `.lua` file on its appropiate folder for the vehicle based on one of the existing ones.
+	* Add a setting in `settingtypes.txt` for users to enable/disable it.
+	* Change settings in the file you created to reflect the new vehicle.
+	* Add a new line to `init.lua` to load the vehicle `dofile(minetest.get_modpath("vehicle_mash") .. "/NAME_OF_VEHICLE.lua")`
 
 ## Installation
 - Unzip the archive, rename the folder to `vehicle_mash` and place it in
@@ -33,9 +34,14 @@ the folder in worldmods/ in your world directory.
 For further information or help, see:\
 https://wiki.minetest.net/Installing_Mods
 
+## Known issues
+- When there is more than 1 passenger, and the driver gets out, two players will stay attached to the vehicle.
+
 ## License
 All licenses of previous works, of course, apply. (see credits below)
 As far as the work I did... It's really just a fork of a fork of a fork of a fork, tossed it all into a blender and spun it on puree for a bit. Baked it for a while and set it on the counter to cool. What I mean is, make what you will of it, it matters not to me.
+
+See [`LICENSE.md`](LICENSE.md) for more information.
 
 ## Dependencies
 - `default` (included in [Minetest Game](https://github.com/minetest/minetest_game))
@@ -46,9 +52,17 @@ As far as the work I did... It's really just a fork of a fork of a fork of a for
 - `vehicle_mash` 2.0 for MT 0.4.12+ (may work on older versions).
 
 ## TODO
-- crafting
+There are no pending tasks to do yet.
 
 ## Changelog
+
+v2.2.1 5/28/2020
+
+* Added vehicle crafting (Enabled by default).
+  * Added car battery, windshield, tire, and motor.
+* All CAR01's can now carry 3 passengers.
+* Add `screenshot.png`.
+* Improve `README.md`.
 
 v2.2 5/15/2020
 
