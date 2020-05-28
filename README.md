@@ -3,6 +3,8 @@
 - Current version: 2.2.1
 - By [blert2112](https://github.com/blert2112), and improvements by [Panquesito7](https://github.com/Panquesito7).
 
+![Screenshot](https://raw.githubusercontent.com/Panquesito7/vehicle_mash/master/screenshot.png)
+
 A merge of all the vehicles from:
 * "Cars" by Radoslaw Slowik.
 * "Mesecars" by paramat.
