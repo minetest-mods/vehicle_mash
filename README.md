@@ -37,7 +37,7 @@ For further information or help, see:\
 https://wiki.minetest.net/Installing_Mods
 
 ## Known issues
-- When there is more than 1 passenger, and the driver gets out, two players will stay attached to the vehicle.
+- When there is more than 1 passenger, and the driver gets out, one or more players will stay attached to the vehicle.
 
 ## License
 All licenses of previous works, of course, apply. (see credits below)
