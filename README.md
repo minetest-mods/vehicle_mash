@@ -1,6 +1,6 @@
 # Vehicle Mash [![Build status](https://github.com/Panquesito7/vehicle_mash/workflows/build/badge.svg)](https://github.com/Panquesito7/vehicle_mash/actions)
 
-- Current version: 2.2.1
+- Current version: 2.2.2
 - By [blert2112](https://github.com/blert2112), and improvements by [Panquesito7](https://github.com/Panquesito7).
 
 ![Screenshot](https://raw.githubusercontent.com/Panquesito7/vehicle_mash/master/screenshot.png)
@@ -37,7 +37,7 @@ For further information or help, see:\
 https://wiki.minetest.net/Installing_Mods
 
 ## Known issues
-- When there is more than 1 passenger, and the driver gets out, one or more players will stay attached to the vehicle.
+- Attachments incorrectly ordered.
 
 ## License
 All licenses of previous works, of course, apply. (see credits below)
@@ -58,21 +58,26 @@ There are no pending tasks to do yet.
 
 ## Changelog
 
+v2.2.2 6/02/2020
+
+*	 Fix passengers not detaching when driver gets out.
+*	 Various other tweaks and fixes for passengers.
+
 v2.2.1 5/28/2020
 
-* Added vehicle crafting (Enabled by default).
-  * Added car battery, windshield, tire, and motor.
-* All CAR01's can now carry 3 passengers.
-* Add `screenshot.png`.
-* Improve `README.md`.
+*	 Added vehicle crafting (Enabled by default).
+     * Added car battery, windshield, tire, and motor.
+*	 All CAR01's can now carry 3 passengers.
+*	 Add `screenshot.png`.
+*	 Improve `README.md`.
 
 v2.2 5/15/2020
 
-* Move files to a folder of its own.
-* Add GitHub workflow and LuaCheck.
-* Add `settingtypes.txt` to select enabled cars.
-* Improve `README.md`.
-* Short a bit the code.
+*	 Move files to a folder of its own.
+*	 Add GitHub workflow and LuaCheck.
+*	 Add `settingtypes.txt` to select enabled cars.
+*	 Improve `README.md`.
+*	 Short a bit the code.
 
 v2.1 6/10/2019
 

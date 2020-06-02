@@ -2,8 +2,6 @@
 vehicle_mash = {}
 local drive = lib_mount.drive
 
-local passenger_count = 1
-
 function vehicle_mash.register_vehicle(name, def)
 	minetest.register_entity(name, {
 		terrain_type = def.terrain_type,
@@ -52,34 +50,44 @@ function vehicle_mash.register_vehicle(name, def)
 			end
 			-- if there is already a driver
 			if self.driver then
-				-- if clicker is driver detach passenger and driver
+				-- if clicker is driver detach passengers and driver
 				if clicker == self.driver then
 					if self.passenger then
-						-- if passenger detach first
 						lib_mount.detach(self.passenger, self.offset)
-						passenger_count = passenger_count - 1
+					end
+
+					if self.passenger2 then
+						lib_mount.detach(self.passenger2, self.offset)
+					end
+
+					if self.passenger3 then
+						lib_mount.detach(self.passenger3, self.offset)
 					end
 					-- detach driver
 					lib_mount.detach(self.driver, self.offset)
 				-- if clicker is not the driver
 				else
 					-- if clicker is passenger
+					-- detach passengers
 					if clicker == self.passenger then
-						-- detach passenger
 						lib_mount.detach(self.passenger, self.offset)
-						passenger_count = passenger_count - 1
+
+					elseif clicker == self.passenger2 then
+						lib_mount.detach(self.passenger2, self.offset)
+
+					elseif clicker == self.passenger3 then
+						lib_mount.detach(self.passenger3, self.offset)
 					-- if clicker is not passenger
 					else
 						-- attach passengers if possible
-						if passenger_count == 1 and self.number_of_passengers >= 1 then
+						if lib_mount.passengers[self.passenger] == self.passenger and self.number_of_passengers >= 1 then
 							lib_mount.attach(self, clicker, true, 1)
-							passenger_count = passenger_count + 1
-						elseif passenger_count == 2 and self.number_of_passengers >= 2 then
+						end
+						if lib_mount.passengers[self.passenger2] == self.passenger2 and self.number_of_passengers >= 2 then
 							lib_mount.attach(self, clicker, true, 2)
-							passenger_count = passenger_count + 1
-						elseif passenger_count == 3 and self.number_of_passengers >= 3 then
+						end
+						if lib_mount.passengers[self.passenger3] == self.passenger3 and self.number_of_passengers >= 3 then
 							lib_mount.attach(self, clicker, true, 3)
-							passenger_count = passenger_count + 1
 						end
 					end
 				end
