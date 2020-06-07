@@ -19,13 +19,13 @@ end
 ------------------------------------------------------------------------------
 -- create Cars common def
 local cars_def = {
-	--adjust to change how vehicle reacts while driving
+	-- adjust to change how vehicle reacts while driving
 	terrain_type = 1,	-- 0 = air, 1 = land, 2 = liquid, 3 = land + liquid
-	--model specific stuff
+	-- model specific stuff
 	visual = "mesh",
 	visual_size = {x=1, y=1},
 	wield_scale = {x=1, y=1, z=1},
-	--player specific stuff
+	-- player specific stuff
 	player_rotation = {x=0,y=0,z=0},
 	driver_eye_offset = {x=0, y=0, z=0},
 	number_of_passengers = 0,
@@ -38,8 +38,7 @@ local cars_def = {
 	passenger3_attach_at = {x=0,y=0,z=0},
 	passenger3_eye_offset = {x=0, y=0, z=0},
 
-	--drop and recipe
-	drop_on_destroy = "",
+	-- recipe
 	recipe = nil
 }
 
@@ -59,7 +58,7 @@ end
 ------------------------------------------------------------------------------
 -- create CAR01 common def
 local car01_def = {
-	--adjust to change how vehicle reacts while driving
+	-- adjust to change how vehicle reacts while driving
 	terrain_type = 1,
 	max_speed_forward = 10,
 	max_speed_reverse = 7,
@@ -67,14 +66,14 @@ local car01_def = {
 	braking = 4,
 	turn_speed = 2,
 	stepheight = 1.1,
-	--model specific stuff
+	-- model specific stuff
 	visual = "mesh",
 	mesh = "car.x",
 	visual_size = {x=1, y=1},
 	wield_scale = {x=1, y=1, z=1},
 	collisionbox = {-0.6, -0.05, -0.6, 0.6, 1, 0.6},
 	onplace_position_adj = -0.45,
-	--player specific stuff
+	-- player specific stuff
 	player_rotation = {x=0,y=90,z=0},
 	driver_attach_at = {x=3.5,y=3.7,z=3.5},
 	driver_eye_offset = {x=-4, y=0, z=0},
@@ -88,8 +87,9 @@ local car01_def = {
 	passenger3_attach_at = {x=-4,y=3.7,z=-3.5},
 	passenger3_eye_offset = {x=4, y=3, z=0},
 
-	--drop and recipe
-	drop_on_destroy = "",
+	-- drop and recipe
+	drop_on_destroy = {"vehicle_mash:tire 2", "vehicle_mash:windshield",
+		"vehicle_mash:battery", "vehicle_mash:motor"},
 	recipe = nil
 }
 
@@ -114,7 +114,7 @@ end
 ------------------------------------------------------------------------------
 -- create Mesecar common def
 local mesecar_def = {
-	--adjust to change how vehicle reacts while driving
+	-- adjust to change how vehicle reacts while driving
 	terrain_type = 1,
 	max_speed_forward = 10,
 	max_speed_reverse = 7,
@@ -122,14 +122,14 @@ local mesecar_def = {
 	braking = 6,
 	turn_speed = 4,
 	stepheight = 0.6,
-	--model specific stuff
+	-- model specific stuff
 	visual = "cube",
 	mesh = "",
 	visual_size = {x=1.5, y=1.5},
 	wield_scale = {x=1, y=1, z=1},
 	collisionbox = {-0.75, -0.75, -0.75, 0.75, 0.75, 0.75},
 	onplace_position_adj = 0.25,
-	--player specific stuff
+	-- player specific stuff
 	player_rotation = {x=0,y=0,z=0},
 	driver_attach_at = {x=0,y=0,z=-2.0},
 	driver_eye_offset = {x=0, y=0, z=0},
@@ -143,8 +143,8 @@ local mesecar_def = {
 	passenger3_attach_at = {x=0,y=0,z=0},
 	passenger3_eye_offset = {x=0, y=0, z=0},
 
-	--drop and recipe
-	drop_on_destroy = "",
+	-- drop and recipe
+	drop_on_destroy = {"vehicle_mash:motor", "vehicle_mash:battery"},
 	recipe = nil
 }
 
@@ -167,7 +167,7 @@ end
 ------------------------------------------------------------------------------
 -- create boats common def
 local boat_def = {
-	--adjust to change how vehicle reacts while driving
+	-- adjust to change how vehicle reacts while driving
 	terrain_type = 2,
 	max_speed_forward = 3,
 	max_speed_reverse = 3,
@@ -175,14 +175,14 @@ local boat_def = {
 	braking = 3,
 	turn_speed = 3,
 	stepheight = 0,
-	--model specific stuff
+	-- model specific stuff
 	visual = "mesh",
 	visual_size = {x=1, y=1},
 	wield_scale = {x=1, y=1, z=1},
 	collisionbox = {-0.5, -0.35, -0.5, 0.5, 0.3, 0.5},
 	onplace_position_adj = 0,
 	textures = {"default_wood.png"},
-	--player specific stuff
+	-- player specific stuff
 	player_rotation = {x=0, y=0, z=0},
 	driver_attach_at = {x=0.5,y=1,z=-3},
 	driver_eye_offset = {x=0, y=0, z=0},
@@ -214,7 +214,7 @@ end
 ------------------------------------------------------------------------------
 -- create hovercraft common def
 local hover_def = {
-	--adjust to change how vehicle reacts while driving
+	-- adjust to change how vehicle reacts while driving
 	terrain_type = 3,
 	max_speed_forward = 10,
 	max_speed_reverse = 0,
@@ -222,14 +222,14 @@ local hover_def = {
 	braking = 1,
 	turn_speed = 2,
 	stepheight = 1.1,
-	--model specific stuff
+	-- model specific stuff
 	visual = "mesh",
 	mesh = "hovercraft.x",
 	visual_size = {x=1, y=1},
 	wield_scale = {x=1, y=1, z=1},
 	collisionbox = {-0.8, -0.25, -0.8, 0.8, 1.2, 0.8},
 	onplace_position_adj = -0.25,
-	--player specific stuff
+	-- player specific stuff
 	player_rotation = {x=0,y=90,z=0},
 	driver_attach_at = {x=-2,y=6.3,z=0},
 	driver_eye_offset = {x=0, y=0, z=0},
@@ -243,8 +243,7 @@ local hover_def = {
 	passenger3_attach_at = {x=0,y=0,z=0},
 	passenger3_eye_offset = {x=0, y=0, z=0},
 
-	--drop and recipe
-	drop_on_destroy = "",
+	-- recipe
 	recipe = nil
 }
 

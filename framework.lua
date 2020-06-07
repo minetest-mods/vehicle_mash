@@ -34,7 +34,7 @@ function vehicle_mash.register_vehicle(name, def)
 		accel = def.accel,
 		braking = def.braking,
 		turn_spd = def.turn_speed,
-		drop_on_destroy = def.drop_on_destroy or function()end,
+		drop_on_destroy = def.drop_on_destroy or {},
 		driver = nil,
 		passenge = nil,
 		v = 0,

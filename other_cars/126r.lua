@@ -19,5 +19,6 @@ definition.wield_image = "car_126r_wield.png"
 definition.textures = {"car_126r.png"}
 -- player specific stuff
 definition.driver_attach_at = {x=0,y=0,z=-4}
+definition.drop_on_destroy = {"vehicle_mash:tire 2", "vehicle_mash:battery", "vehicle_mash:motor"}
 
 vehicle_mash.register_vehicle("vehicle_mash:"..name, definition)

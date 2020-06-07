@@ -7,7 +7,7 @@ definition.description = "BoatA"
 definition.inventory_image = "boat_inventory.png"
 definition.wield_image = "boat_wield.png"
 definition.mesh = "boats_boat.obj"
-definition.drop_on_destroy = "default:wood 3"
+definition.drop_on_destroy = {"default:wood 3"}
 
 if craft_check or craft_check == nil then
 	definition.recipe = {
