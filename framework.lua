@@ -7,6 +7,8 @@ function vehicle_mash.register_vehicle(name, def)
 		terrain_type = def.terrain_type,
 		collisionbox = def.collisionbox,
 		can_fly = def.can_fly,
+		can_go_down = def.can_go_down,
+		can_go_up = def.can_go_up,
 		player_rotation = def.player_rotation,
 		driver_attach_at = def.driver_attach_at,
 		driver_eye_offset = def.driver_eye_offset,
@@ -137,7 +139,7 @@ function vehicle_mash.register_vehicle(name, def)
 			end
 		end,
 		on_step = function(self, dtime)
-			drive(self, dtime, false, nil, nil, 0, def.can_fly)
+			drive(self, dtime, false, nil, nil, 0, def.can_fly, def.can_go_down, def.can_go_up)
 		end
 	})
 
