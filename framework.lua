@@ -6,6 +6,7 @@ function vehicle_mash.register_vehicle(name, def)
 	minetest.register_entity(name, {
 		terrain_type = def.terrain_type,
 		collisionbox = def.collisionbox,
+		can_fly = def.can_fly,
 		player_rotation = def.player_rotation,
 		driver_attach_at = def.driver_attach_at,
 		driver_eye_offset = def.driver_eye_offset,
@@ -136,7 +137,7 @@ function vehicle_mash.register_vehicle(name, def)
 			end
 		end,
 		on_step = function(self, dtime)
-			drive(self, dtime, false, nil, nil, 0, false)
+			drive(self, dtime, false, nil, nil, 0, def.can_fly)
 		end
 	})
 
