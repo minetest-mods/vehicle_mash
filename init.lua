@@ -15,51 +15,12 @@ end
 -- load vehicles down here
 -- ***********************
 
--- ** 126r and F1 **
-------------------------------------------------------------------------------
--- create Cars common def
-local cars_def = {
-	-- adjust to change how vehicle reacts while driving
-	terrain_type = 1,	-- 0 = air, 1 = land, 2 = liquid, 3 = land + liquid
-	-- model specific stuff
-	visual = "mesh",
-	visual_size = {x=1, y=1},
-	wield_scale = {x=1, y=1, z=1},
-	-- player specific stuff
-	player_rotation = {x=0,y=0,z=0},
-	driver_eye_offset = {x=0, y=0, z=0},
-	number_of_passengers = 0,
-	passenger_attach_at = {x=0,y=0,z=0},
-	passenger_eye_offset = {x=0, y=0, z=0},
-
-	passenger2_attach_at = {x=0,y=0,z=0},
-	passenger2_eye_offset = {x=0, y=0, z=0},
-
-	passenger3_attach_at = {x=0,y=0,z=0},
-	passenger3_eye_offset = {x=0, y=0, z=0},
-
-	-- recipe
-	recipe = nil
-}
-
-local other_car_names = {
-	"126r",
-	"f1",
-}
-
-for _, name in ipairs(other_car_names) do
-	local check_enabled = minetest.settings:get_bool("vehicle_mash.enable_" .. name .. "_car")
-	if check_enabled or check_enabled == nil then
-		loadfile(mpath.. "/other_cars/" .. name .. ".lua")(table.copy(cars_def))
-	end
-end
-
 -- ** CAR01s **
 ------------------------------------------------------------------------------
 -- create CAR01 common def
 local car01_def = {
 	-- adjust to change how vehicle reacts while driving
-	terrain_type = 1,
+	terrain_type = 1,	-- 0 = air, 1 = land, 2 = liquid, 3 = land + liquid
 	max_speed_forward = 10,
 	max_speed_reverse = 7,
 	accel = 2,

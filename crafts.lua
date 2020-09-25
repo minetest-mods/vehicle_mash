@@ -304,22 +304,3 @@ minetest.register_craft({
 		{"vehicle_mash:tire", "vehicle_mash:battery", "vehicle_mash:tire"},
 	}
 })
-
--- Other cars
-minetest.register_craft({
-	output = "vehicle_mash:car_f1",
-	recipe = {
-		{"vehicle_mash:tire", "", "vehicle_mash:tire"},
-		{"vehicle_mash:motor", "wool:red", "vehicle_mash:motor"},
-		{"vehicle_mash:tire", "vehicle_mash:battery", "vehicle_mash:tire"},
-	}
-})
-
-minetest.register_craft({
-	output = "vehicle_mash:car_126r",
-	recipe = {
-		{"vehicle_mash:tire", "xpanes:obsidian_pane_flat", "vehicle_mash:tire"},
-		{"vehicle_mash:motor", "wool:red", "vehicle_mash:motor"},
-		{"vehicle_mash:tire", "vehicle_mash:battery", "vehicle_mash:tire"},
-	}
-})
