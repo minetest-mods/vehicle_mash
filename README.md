@@ -1,4 +1,4 @@
-# Vehicle Mash [![Build status](https://github.com/Panquesito7/vehicle_mash/workflows/build/badge.svg)](https://github.com/Panquesito7/vehicle_mash/actions)
+# Vehicle Mash [![Build status](https://github.com/Panquesito7/vehicle_mash/workflows/build/badge.svg)](https://github.com/Panquesito7/vehicle_mash/actions) [![ContentDB](https://content.minetest.net/packages/Panquesito7/vehicle_mash/shields/downloads/)](https://content.minetest.net/packages/Panquesito7/vehicle_mash/)
 
 - Current version: 2.2.2
 - By [blert2112](https://github.com/blert2112), and improvements by [Panquesito7](https://github.com/Panquesito7).
@@ -116,7 +116,7 @@ v1.3 5/5/2015
 - tweaked player sit positions
 - tweaked collison boxes
 - proper placement on_ground/in_water
-	
+
 v1.2 5/1/2015
 
 - added boats
@@ -132,7 +132,7 @@ v1.0 4/24/2015
 
 ## Bugs, suggestions and new features
 
-Report bugs or suggest ideas by [creating an issue](https://github.com/blert2112/vehicle_mash/issues/new).      
+Report bugs or suggest ideas by [creating an issue](https://github.com/blert2112/vehicle_mash/issues/new).\
 If you know how to fix an issue, consider opening a [pull request](https://github.com/blert2112/vehicle_mash/compare).
 
 ## Credit where credit is due
