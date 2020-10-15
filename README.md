@@ -1,9 +1,9 @@
-# Vehicle Mash [![Build status](https://github.com/Panquesito7/vehicle_mash/workflows/build/badge.svg)](https://github.com/Panquesito7/vehicle_mash/actions) [![ContentDB](https://content.minetest.net/packages/Panquesito7/vehicle_mash/shields/downloads/)](https://content.minetest.net/packages/Panquesito7/vehicle_mash/)
+# Vehicle Mash [![Build status](https://github.com/minetest-mods/vehicle_mash/workflows/build/badge.svg)](https://github.com/minetest-mods/vehicle_mash/actions) [![ContentDB](https://content.minetest.net/packages/Panquesito7/vehicle_mash/shields/downloads/)](https://content.minetest.net/packages/Panquesito7/vehicle_mash/)
 
 - Current version: 2.2.2
 - By [blert2112](https://github.com/blert2112), and improvements by [Panquesito7](https://github.com/Panquesito7).
 
-![Screenshot](https://raw.githubusercontent.com/Panquesito7/vehicle_mash/master/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/minetest-mods/vehicle_mash/master/screenshot.png)
 
 A merge of all the vehicles from:
 
@@ -132,8 +132,8 @@ v1.0 4/24/2015
 
 ## Bugs, suggestions and new features
 
-Report bugs or suggest ideas by [creating an issue](https://github.com/blert2112/vehicle_mash/issues/new).\
-If you know how to fix an issue, consider opening a [pull request](https://github.com/blert2112/vehicle_mash/compare).
+Report bugs or suggest ideas by [creating an issue](https://github.com/minetest-mods/vehicle_mash/issues/new).\
+If you know how to fix an issue, consider opening a [pull request](https://github.com/minetest-mods/vehicle_mash/compare).
 
 ## Credit where credit is due
 
