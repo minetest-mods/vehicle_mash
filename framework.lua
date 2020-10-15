@@ -1,17 +1,14 @@
 
 vehicle_mash = {}
-
-local function is_water(pos)
-	local nn = minetest.get_node(pos).name
-	return minetest.get_item_group(nn, "water") ~= 0
-end
-
 local drive = lib_mount.drive
 
 function vehicle_mash.register_vehicle(name, def)
 	minetest.register_entity(name, {
 		terrain_type = def.terrain_type,
 		collisionbox = def.collisionbox,
+		can_fly = def.can_fly,
+		can_go_down = def.can_go_down,
+		can_go_up = def.can_go_up,
 		player_rotation = def.player_rotation,
 		driver_attach_at = def.driver_attach_at,
 		driver_eye_offset = def.driver_eye_offset,
@@ -20,6 +17,15 @@ function vehicle_mash.register_vehicle(name, def)
 		passenger_attach_at = def.passenger_attach_at,
 		passenger_eye_offset = def.passenger_eye_offset,
 		passenger_detach_pos_offset = def.passenger_detach_pos_offset,
+
+		passenger2_attach_at = def.passenger2_attach_at,
+		passenger2_eye_offset = def.passenger2_eye_offset,
+		passenger2_detach_pos_offset = def.passenger2_detach_pos_offset,
+
+		passenger3_attach_at = def.passenger3_attach_at,
+		passenger3_eye_offset = def.passenger3_eye_offset,
+		passenger3_detach_pos_offset = def.passenger3_detach_pos_offset,
+
 		visual = def.visual,
 		mesh = def.mesh,
 		textures = def.textures,
@@ -31,7 +37,7 @@ function vehicle_mash.register_vehicle(name, def)
 		accel = def.accel,
 		braking = def.braking,
 		turn_spd = def.turn_speed,
-		drop_on_destroy = def.drop_on_destroy or function()end,
+		drop_on_destroy = def.drop_on_destroy or {},
 		driver = nil,
 		passenge = nil,
 		v = 0,
@@ -47,25 +53,44 @@ function vehicle_mash.register_vehicle(name, def)
 			end
 			-- if there is already a driver
 			if self.driver then
-				-- if clicker is driver detach passenger and driver
+				-- if clicker is driver detach passengers and driver
 				if clicker == self.driver then
-					-- if passenger detach first
 					if self.passenger then
 						lib_mount.detach(self.passenger, self.offset)
+					end
+
+					if self.passenger2 then
+						lib_mount.detach(self.passenger2, self.offset)
+					end
+
+					if self.passenger3 then
+						lib_mount.detach(self.passenger3, self.offset)
 					end
 					-- detach driver
 					lib_mount.detach(self.driver, self.offset)
 				-- if clicker is not the driver
 				else
-					-- if clicker is pasenger
+					-- if clicker is passenger
+					-- detach passengers
 					if clicker == self.passenger then
-						-- detach passenger
 						lib_mount.detach(self.passenger, self.offset)
+
+					elseif clicker == self.passenger2 then
+						lib_mount.detach(self.passenger2, self.offset)
+
+					elseif clicker == self.passenger3 then
+						lib_mount.detach(self.passenger3, self.offset)
 					-- if clicker is not passenger
 					else
-						-- attach passenger if possible
-						if not self.passenger and self.number_of_passengers > 0 then
-							lib_mount.attach(self, clicker, true)
+						-- attach passengers if possible
+						if lib_mount.passengers[self.passenger] == self.passenger and self.number_of_passengers >= 1 then
+							lib_mount.attach(self, clicker, true, 1)
+						end
+						if lib_mount.passengers[self.passenger2] == self.passenger2 and self.number_of_passengers >= 2 then
+							lib_mount.attach(self, clicker, true, 2)
+						end
+						if lib_mount.passengers[self.passenger3] == self.passenger3 and self.number_of_passengers >= 3 then
+							lib_mount.attach(self, clicker, true, 3)
 						end
 					end
 				end
@@ -73,7 +98,7 @@ function vehicle_mash.register_vehicle(name, def)
 			else
 				-- attach driver
 				if self.owner == clicker:get_player_name() then
-					lib_mount.attach(self, clicker, false)
+					lib_mount.attach(self, clicker, false, 0)
 				end
 			end
 		end,
@@ -84,7 +109,7 @@ function vehicle_mash.register_vehicle(name, def)
 				for _,stat in pairs(tmp) do
 					if _ == "owner" then print(stat) end
 					self[_] = stat
-				end 
+				end
 			end
 			print("owner: ", self.owner)
 			self.v2 = self.v
@@ -108,13 +133,13 @@ function vehicle_mash.register_vehicle(name, def)
 			  self.removed = true
 			  -- delay remove to ensure player is detached
 			  minetest.after(0.1, function()
-			  		self.object:remove()
-			  end)
+				self.object:remove()
+			end)
 			  puncher:get_inventory():add_item("main", self.name)
 			end
 		end,
 		on_step = function(self, dtime)
-			drive(self, dtime, false, nil, nil, 0, false)
+			drive(self, dtime, false, nil, nil, 0, def.can_fly, def.can_go_down, def.can_go_up)
 		end
 	})
 
@@ -122,7 +147,7 @@ function vehicle_mash.register_vehicle(name, def)
 	if def.terrain_type == 2 or def.terrain_type == 3 then
 		can_float = true
 	end
-	
+
 	minetest.register_craftitem(name, {
 		description = def.description,
 		inventory_image = def.inventory_image,
@@ -148,12 +173,12 @@ function vehicle_mash.register_vehicle(name, def)
 				else
 					return
 				end
-				
+
 			end
 			if ent:get_luaentity().player_rotation.y == 90 then
-				ent:setyaw(placer:get_look_yaw())
+				ent:set_yaw(placer:get_look_horizontal())
 			else
-				ent:setyaw(placer:get_look_yaw() - math.pi/2)
+				ent:set_yaw(placer:get_look_horizontal() - math.pi/2)
 			end
 			ent:get_luaentity().owner = placer:get_player_name()
 			itemstack:take_item()
