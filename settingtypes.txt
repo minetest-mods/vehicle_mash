@@ -2,6 +2,11 @@
 
 vehicle_mash.enable_crafts (Allows crafting vehicles) bool true
 
+#	When enabled, all vehicles are disabled and this mod will be only
+#	used for API functions/purpose. Because this mod has very good API functions
+#	for registering vehicles, somebody may use this option in their server.
+vehicle_mash.api_mode (Disables all vehicles and only enables API functions) bool false
+
 # CAR01's cars
 
 vehicle_mash.enable_black_car (Enables black car) bool true
