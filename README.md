@@ -1,7 +1,7 @@
 # Vehicle Mash [![Build status](https://github.com/minetest-mods/vehicle_mash/workflows/build/badge.svg)](https://github.com/minetest-mods/vehicle_mash/actions) [![ContentDB](https://content.minetest.net/packages/Panquesito7/vehicle_mash/shields/downloads/)](https://content.minetest.net/packages/Panquesito7/vehicle_mash/)
 
 - Current version: 2.2.2
-- By [blert2112](https://github.com/blert2112), and improvements by [Panquesito7](https://github.com/Panquesito7).
+- By [blert2112](https://github.com/blert2112), and handed over to [Panquesito7](https://github.com/Panquesito7).
 
 ![Screenshot](https://raw.githubusercontent.com/minetest-mods/vehicle_mash/master/screenshot.png)
 
@@ -42,6 +42,9 @@ For further information or help, see:\
 - Attachments incorrectly ordered.
 
 ## License
+
+Copyright (C) 2015-2016 blert2112 and contributors
+Copyright (C) 2019-2021 Panquesito7 and contributors
 
 All licenses of previous works, of course, apply. (see credits below)
 As far as the work I did... It's really just a fork of a fork of a fork of a fork, tossed it all into a blender and spun it on puree for a bit. Baked it for a while and set it on the counter to cool. What I mean is, make what you will of it, it matters not to me.
