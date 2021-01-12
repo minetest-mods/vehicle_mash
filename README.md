@@ -43,7 +43,7 @@ For further information or help, see:\
 
 ## License
 
-Copyright (C) 2015-2016 blert2112 and contributors
+Copyright (C) 2015-2016 blert2112 and contributors\
 Copyright (C) 2019-2021 Panquesito7 and contributors
 
 All licenses of previous works, of course, apply. (see credits below)

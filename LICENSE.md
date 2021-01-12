@@ -1,6 +1,6 @@
 # Credit where credit is due
 
-Copyright (C) 2015-2016 blert2112 and contributors
+Copyright (C) 2015-2016 blert2112 and contributors\
 Copyright (C) 2019-2021 Panquesito7 and contributors
 
 - Black, Blue, Brown, Cyan, Dark Green, Dark Grey, Green, Grey, Magenta, Orange, Pink, Red, Violet, White, Yellow, Hot Rod, Nyan Ride, Oerkki Bliss, and Road Master from: "Car" by Esteban
