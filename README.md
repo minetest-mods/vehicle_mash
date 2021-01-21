@@ -54,7 +54,7 @@ See [`LICENSE.md`](LICENSE.md) for more information.
 ## Dependencies
 
 - `default` (included in [Minetest Game](https://github.com/minetest/minetest_game))
-- [`lib_mount`](https://github.com/Panquesito7/lib_mount)
+- [`lib_mount`](https://github.com/minetest-mods/lib_mount)
 
 ## Requirements
 
