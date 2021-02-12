@@ -26,7 +26,7 @@ function vehicle_mash.register_vehicle(name, def)
 		passenger3_eye_offset = def.passenger3_eye_offset,
 		passenger3_detach_pos_offset = def.passenger3_detach_pos_offset,
 
-		enable_crash = def.enable_crash or true,
+		enable_crash = def.enable_crash,
 		visual = def.visual,
 		mesh = def.mesh,
 		textures = def.textures,
@@ -140,6 +140,10 @@ function vehicle_mash.register_vehicle(name, def)
 			end
 		end,
 		on_step = function(self, dtime)
+			-- Automatically set `enable_crash` to true if there's no value found
+			if def.enable_crash == nil then
+				def.enable_crash = true
+			end
 			drive(self, dtime, false, nil, nil, 0, def.can_fly, def.can_go_down, def.can_go_up, def.enable_crash)
 		end
 	})
