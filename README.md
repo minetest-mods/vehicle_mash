@@ -1,6 +1,6 @@
 # Vehicle Mash [![Build status](https://github.com/minetest-mods/vehicle_mash/workflows/build/badge.svg)](https://github.com/minetest-mods/vehicle_mash/actions) [![ContentDB](https://content.minetest.net/packages/Panquesito7/vehicle_mash/shields/downloads/)](https://content.minetest.net/packages/Panquesito7/vehicle_mash/)
 
-- Current version: 2.2.2
+- Current version: 2.3.0
 - By [blert2112](https://github.com/blert2112), and handed over to [Panquesito7](https://github.com/Panquesito7).
 
 ![Screenshot](https://raw.githubusercontent.com/minetest-mods/vehicle_mash/master/screenshot.png)
@@ -66,6 +66,18 @@ See [`LICENSE.md`](LICENSE.md) for more information.
 There are no pending tasks to do yet.
 
 ## Changelog
+
+v2.3.0 2/12/2021
+
+- Improved formatting in `README.md`.
+- Added [API Mode](https://github.com/minetest-mods/vehicle_mash/commit/6b3bdac4d880a6fde298a286b3bd5043750e904e) setting.
+- Removed F1 and 126r cars due to closed-source license.
+- Improved vehicle drops.
+  - Vehicles can now drop multiple items.
+- Add option for vehicles to fly (setting per vehicle).
+- Can enable/disable crash separately for each vehicle.
+- Added ContentDB badge on `README.md`.
+- Improved GitHub workflow.
 
 v2.2.2 6/02/2020
 
