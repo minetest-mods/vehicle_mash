@@ -7,8 +7,8 @@ function vehicle_mash.register_vehicle(name, def)
 		terrain_type = def.terrain_type,
 		collisionbox = def.collisionbox,
 		can_fly = def.can_fly,
-		can_go_down = def.can_go_down,
-		can_go_up = def.can_go_up,
+		can_go_down = def.can_go_down, -- Applies only when `can_fly` is enabled
+		can_go_up = def.can_go_up, -- Applies only when `can_fly` is enabled
 		player_rotation = def.player_rotation,
 		driver_attach_at = def.driver_attach_at,
 		driver_eye_offset = def.driver_eye_offset,
@@ -33,8 +33,12 @@ function vehicle_mash.register_vehicle(name, def)
 		tiles = def.tiles,
 		visual_size = def.visual_size,
 		stepheight = def.stepheight,
+
 		max_speed_forward = def.max_speed_forward,
 		max_speed_reverse = def.max_speed_reverse,
+		max_speed_upwards = def.max_speed_upwards, -- Applies only when `can_fly` is enabled
+		max_speed_downwards = def.max_speed_downwards, -- Applies only when `can_fly` is enabled
+
 		accel = def.accel,
 		braking = def.braking,
 		turn_spd = def.turn_speed,
