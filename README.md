@@ -44,7 +44,7 @@ For further information or help, see:\
 ## License
 
 Copyright (C) 2015-2016 blert2112 and contributors\
-Copyright (C) 2019-2021 Panquesito7 (halfpacho@gmail.com) and contributors
+Copyright (C) 2019-2022 Panquesito7 (halfpacho@gmail.com) and contributors
 
 All licenses of previous works, of course, apply. (see credits below)
 As far as the work I did... It's really just a fork of a fork of a fork of a fork, tossed it all into a blender and spun it on puree for a bit. Baked it for a while and set it on the counter to cool. What I mean is, make what you will of it, it matters not to me.

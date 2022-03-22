@@ -1,7 +1,7 @@
 # Credit where credit is due
 
 Copyright (C) 2015-2016 blert2112 and contributors\
-Copyright (C) 2019-2021 Panquesito7 (halfpacho@gmail.com) and contributors
+Copyright (C) 2019-2022 Panquesito7 (halfpacho@gmail.com) and contributors
 
 - Black, Blue, Brown, Cyan, Dark Green, Dark Grey, Green, Grey, Magenta, Orange, Pink, Red, Violet, White, Yellow, Hot Rod, Nyan Ride, Oerkki Bliss, and Road Master from: "Car" by Esteban
   - <https://forum.minetest.net/viewtopic.php?f=13&t=7407>
