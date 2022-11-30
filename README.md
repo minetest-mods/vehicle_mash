@@ -46,7 +46,7 @@ For further information or help, see:\
 Copyright (C) 2015-2016 blert2112 and contributors\
 Copyright (C) 2019-2022 Panquesito7 (halfpacho@gmail.com) and contributors
 
-All licenses of previous works, of course, apply. (see credits below)
+All licenses of previous works, of course, apply (see credits below).
 As far as the work I did... It's really just a fork of a fork of a fork of a fork, tossed it all into a blender and spun it on puree for a bit. Baked it for a while and set it on the counter to cool. What I mean is, make what you will of it, it matters not to me.
 
 See [`LICENSE.md`](LICENSE.md) for more information.
@@ -149,35 +149,3 @@ v1.0 4/24/2015
 
 Report bugs or suggest ideas by [creating an issue](https://github.com/minetest-mods/vehicle_mash/issues/new).\
 If you know how to fix an issue, consider opening a [pull request](https://github.com/minetest-mods/vehicle_mash/compare).
-
-## Credit where credit is due
-
-- Black, Blue, Brown, Cyan, Dark Green, Dark Grey, Green, Grey, Magenta, Orange, Pink, Red, Violet, White, Yellow, Hot Rod, Nyan Ride, Oerkki Bliss, and Road Master from: "Car" by Esteban
-  - <https://forum.minetest.net/viewtopic.php?f=13&t=7407>
-  - License:
-    - No info given in that mod but I am going to assume the credit for the original model goes to:
-    - Melcor and his CAR01 model
-    - <https://forum.minetest.net/viewtopic.php?f=9&t=6512>
-    - License: CC-BY-NC-SA
-
-- MeseCars from: "Mesecars" by paramat
-  - <https://forum.minetest.net/viewtopic.php?f=11&t=7967>
-  - Licenses: Code WTFPL, textures CC BY-SA
-
-- Boats from "Boats" by PilzAdam
-  - textures: Zeg9
-  - model: thetoon and Zeg9, modified by PavelS(SokolovPavel)
-  - License: WTFPL
-
-- Hovercraft from "Hovercraft" by Stuart Jones
-  - Licenses:
-    - textures: CC-BY-SA
-    - sounds: freesound.org
-      - Rocket Boost Engine Loop by qubodup - CC0
-      - CARTOON-BING-LOW by kantouth - CC-BY-3.0
-      - All other sounds: Copyright Stuart Jones - CC-BY-SA
-
-I am sure many others deserve mention.\
-If you feel left out let me know and I will add you in.
-
-Enjoy!
