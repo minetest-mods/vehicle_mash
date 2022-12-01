@@ -71,6 +71,11 @@ else
 		passenger3_attach_at = {x=-4,y=3.7,z=-3.5},
 		passenger3_eye_offset = {x=4, y=3, z=0},
 
+		-- HP/Armor stuff. Uncomment to enable.
+		-- min_hp = 10,
+		-- max_hp = 35,
+		-- armor = 25,
+
 		-- drop and recipe
 		drop_on_destroy = {"vehicle_mash:tire 2", "vehicle_mash:windshield",
 			"vehicle_mash:battery", "vehicle_mash:motor"},
@@ -127,6 +132,11 @@ else
 		passenger3_attach_at = {x=0,y=0,z=0},
 		passenger3_eye_offset = {x=0, y=0, z=0},
 
+		-- HP/Armor stuff. Uncomment to enable.
+		-- min_hp = 10,
+		-- max_hp = 35,
+		-- armor = 25,
+
 		-- drop and recipe
 		drop_on_destroy = {"vehicle_mash:motor", "vehicle_mash:battery"},
 		recipe = nil
@@ -178,7 +188,12 @@ else
 		passenger2_eye_offset = {x=0, y=0, z=0},
 
 		passenger3_attach_at = {x=0,y=0,z=0},
-		passenger3_eye_offset = {x=0, y=0, z=0}
+		passenger3_eye_offset = {x=0, y=0, z=0},
+
+		-- HP/Armor stuff. Uncomment to enable.
+		-- min_hp = 10,
+		-- max_hp = 35,
+		-- armor = 25,
 	}
 
 	local boat_names = {
@@ -226,6 +241,11 @@ else
 
 		passenger3_attach_at = {x=0,y=0,z=0},
 		passenger3_eye_offset = {x=0, y=0, z=0},
+
+		-- HP/Armor stuff. Uncomment to enable.
+		-- min_hp = 10,
+		-- max_hp = 35,
+		-- armor = 25,
 
 		-- recipe
 		recipe = nil
