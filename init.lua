@@ -1,3 +1,5 @@
+vehicle_mash = { }
+
 -- Fix `player_api` eye height model if desired
 if minetest.settings:get_bool("vehicle_mash.player_api_fix") == true or minetest.settings:get_bool("vehicle_mash.player_api_fix") == nil then
 	player_api.registered_models["character.b3d"].animations.sit.eye_height = 1.47
@@ -62,14 +64,21 @@ else
 		driver_attach_at = {x=3.5,y=3.7,z=3.5},
 		driver_eye_offset = {x=-4, y=0, z=0},
 		number_of_passengers = 3,
-		passenger_attach_at = {x=3.5,y=3.7,z=-3.5},
-		passenger_eye_offset = {x=4, y=0, z=0},
 
-		passenger2_attach_at = {x=-4,y=3.7,z=3.5},
-		passenger2_eye_offset = {x=-4, y=3, z=0},
-
-		passenger3_attach_at = {x=-4,y=3.7,z=-3.5},
-		passenger3_eye_offset = {x=4, y=3, z=0},
+		passengers = {
+			{
+				attach_at = {x=3.5,y=3.7,z=-3.5},
+				eye_offset = {x=4, y=0, z=0},
+			},
+			{
+				attach_at = {x=-4,y=3.7,z=3.5},
+				eye_offset = {x=-4, y=3, z=0},
+			},
+			{
+				attach_at = {x=-4,y=3.7,z=-3.5},
+				eye_offset = {x=4, y=3, z=0},
+			},
+		},
 
 		-- HP/Armor stuff. Uncomment to enable.
 		-- min_hp = 10,
@@ -91,7 +100,7 @@ else
 		"nyan_ride", "oerkki_bliss", "road_master",
 	}
 
--- Load all CAR01's cars if enabled
+	-- Load all CAR01's cars if enabled
 	for _, name in ipairs(car01_names) do
 		local check_enabled = minetest.settings:get_bool("vehicle_mash.enable_" .. name .. "_car")
 		if check_enabled or check_enabled == nil then
@@ -123,14 +132,13 @@ else
 		driver_attach_at = {x=0,y=0,z=-2.0},
 		driver_eye_offset = {x=0, y=0, z=0},
 		number_of_passengers = 0,
-		passenger_attach_at = {x=0,y=0,z=0},
-		passenger_eye_offset = {x=0, y=0, z=0},
 
-		passenger2_attach_at = {x=0,y=0,z=0},
-		passenger2_eye_offset = {x=0, y=0, z=0},
-
-		passenger3_attach_at = {x=0,y=0,z=0},
-		passenger3_eye_offset = {x=0, y=0, z=0},
+		passengers = {
+			{
+				attach_at = {x=0,y=0,z=0},
+				eye_offset = {x=0, y=0, z=0},
+			},
+		},
 
 		-- HP/Armor stuff. Uncomment to enable.
 		-- min_hp = 10,
@@ -181,14 +189,12 @@ else
 		driver_attach_at = {x=0.5,y=1,z=-3},
 		driver_eye_offset = {x=0, y=0, z=0},
 		number_of_passengers = 0,
-		passenger_attach_at = {x=0,y=0,z=0},
-		passenger_eye_offset = {x=0, y=0, z=0},
-
-		passenger2_attach_at = {x=0,y=0,z=0},
-		passenger2_eye_offset = {x=0, y=0, z=0},
-
-		passenger3_attach_at = {x=0,y=0,z=0},
-		passenger3_eye_offset = {x=0, y=0, z=0},
+		passengers = {
+			{
+				attach_at = {x=0,y=0,z=0},
+				eye_offset = {x=0, y=0, z=0},
+			},
+		},
 
 		-- HP/Armor stuff. Uncomment to enable.
 		-- min_hp = 10,
@@ -233,14 +239,13 @@ else
 		driver_attach_at = {x=-2,y=6.3,z=0},
 		driver_eye_offset = {x=0, y=0, z=0},
 		number_of_passengers = 0,
-		passenger_attach_at = {x=0,y=0,z=0},
-		passenger_eye_offset = {x=0, y=0, z=0},
 
-		passenger2_attach_at = {x=0,y=0,z=0},
-		passenger2_eye_offset = {x=0, y=0, z=0},
-
-		passenger3_attach_at = {x=0,y=0,z=0},
-		passenger3_eye_offset = {x=0, y=0, z=0},
+		passengers = {
+			{
+				attach_at = {x=0,y=0,z=0},
+				eye_offset = {x=0, y=0, z=0},
+			},
+		},
 
 		-- HP/Armor stuff. Uncomment to enable.
 		-- min_hp = 10,
