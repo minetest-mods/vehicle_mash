@@ -1,7 +1,9 @@
 vehicle_mash = { }
 
 -- Fix `player_api` eye height model if desired
-if minetest.settings:get_bool("vehicle_mash.player_api_fix") == true or minetest.settings:get_bool("vehicle_mash.player_api_fix") == nil then
+if minetest.settings:get_bool("vehicle_mash.player_api_fix") == true or minetest.settings:get_bool("vehicle_mash.player_api_fix") == nil
+	and player_api.registered_models["character.b3d"] then
+
 	player_api.registered_models["character.b3d"].animations.sit.eye_height = 1.47
 end
 
@@ -56,27 +58,27 @@ else
 		visual = "mesh",
 		mesh = "car.x",
 		visual_size = {x=1, y=1},
-		wield_scale = {x=1, y=1, z=1},
+		wield_scale = vector.new(1,1,1),
 		collisionbox = {-0.6, -0.05, -0.6, 0.6, 1, 0.6},
 		onplace_position_adj = -0.45,
 		-- player specific stuff
-		player_rotation = {x=0,y=90,z=0},
-		driver_attach_at = {x=3.5,y=3.7,z=3.5},
-		driver_eye_offset = {x=-4, y=0, z=0},
+		player_rotation = vector.new(0,90,0),
+		driver_attach_at = vector.new(3.5,3.7,3.5),
+		driver_eye_offset = vector.new(-4,0,0),
 		number_of_passengers = 3,
 
 		passengers = {
 			{
-				attach_at = {x=3.5,y=3.7,z=-3.5},
-				eye_offset = {x=4, y=0, z=0},
+				attach_at = vector.new(3.5,3.7,-3.5),
+				eye_offset = vector.new(4,0,0),
 			},
 			{
-				attach_at = {x=-4,y=3.7,z=3.5},
-				eye_offset = {x=-4, y=3, z=0},
+				attach_at = vector.new(-4,3.7,3.5),
+				eye_offset = vector.new(-4,3,0),
 			},
 			{
-				attach_at = {x=-4,y=3.7,z=-3.5},
-				eye_offset = {x=4, y=3, z=0},
+				attach_at = vector.new(-4,3.7,-3.5),
+				eye_offset = vector.new(4,3,0),
 			},
 		},
 
@@ -124,19 +126,19 @@ else
 		visual = "cube",
 		mesh = "",
 		visual_size = {x=1.5, y=1.5},
-		wield_scale = {x=1, y=1, z=1},
+		wield_scale = vector.new(1,1,1),
 		collisionbox = {-0.75, -0.75, -0.75, 0.75, 0.75, 0.75},
 		onplace_position_adj = 0.25,
 		-- player specific stuff
-		player_rotation = {x=0,y=0,z=0},
-		driver_attach_at = {x=0,y=0,z=-2.0},
-		driver_eye_offset = {x=0, y=0, z=0},
+		player_rotation = vector.new(0,0,0),
+		driver_attach_at = vector.new(0,0,-2.0),
+		driver_eye_offset = vector.new(0,0,0),
 		number_of_passengers = 0,
 
 		passengers = {
 			{
-				attach_at = {x=0,y=0,z=0},
-				eye_offset = {x=0, y=0, z=0},
+				attach_at = vector.new(0,0,0),
+				eye_offset = vector.new(0,0,0),
 			},
 		},
 
@@ -180,19 +182,19 @@ else
 		-- model specific stuff
 		visual = "mesh",
 		visual_size = {x=1, y=1},
-		wield_scale = {x=1, y=1, z=1},
+		wield_scale = vector.new(1,1,1),
 		collisionbox = {-0.5, -0.35, -0.5, 0.5, 0.3, 0.5},
 		onplace_position_adj = 0,
 		textures = {"default_wood.png"},
 		-- player specific stuff
-		player_rotation = {x=0, y=0, z=0},
-		driver_attach_at = {x=0.5,y=1,z=-3},
-		driver_eye_offset = {x=0, y=0, z=0},
+		player_rotation = vector.new(0,0,0),
+		driver_attach_at = vector.new(0.5,1,-3),
+		driver_eye_offset = vector.new(0,0,0),
 		number_of_passengers = 0,
 		passengers = {
 			{
-				attach_at = {x=0,y=0,z=0},
-				eye_offset = {x=0, y=0, z=0},
+				attach_at = vector.new(0,0,0),
+				eye_offset = vector.new(0,0,0),
 			},
 		},
 
@@ -231,19 +233,19 @@ else
 		visual = "mesh",
 		mesh = "hovercraft.x",
 		visual_size = {x=1, y=1},
-		wield_scale = {x=1, y=1, z=1},
+		wield_scale = vector.new(1,1,1),
 		collisionbox = {-0.8, -0.25, -0.8, 0.8, 1.2, 0.8},
 		onplace_position_adj = -0.25,
 		-- player specific stuff
-		player_rotation = {x=0,y=90,z=0},
-		driver_attach_at = {x=-2,y=6.3,z=0},
-		driver_eye_offset = {x=0, y=0, z=0},
+		player_rotation = vector.new(0,90,0),
+		driver_attach_at = vector.new(-2,6.3,0),
+		driver_eye_offset = vector.new(0,0,0),
 		number_of_passengers = 0,
 
 		passengers = {
 			{
-				attach_at = {x=0,y=0,z=0},
-				eye_offset = {x=0, y=0, z=0},
+				attach_at = vector.new(0,0,0),
+				eye_offset = vector.new(0,0,0),
 			},
 		},
 
