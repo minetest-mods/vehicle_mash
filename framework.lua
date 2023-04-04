@@ -37,7 +37,7 @@ function vehicle_mash.register_vehicle(name, def)
 		mouselook = false,
 		physical = true,
 		removed = false,
-		offset = {x=0, y=0, z=0},
+		offset = vector.new(0,0,0),
 		owner = "",
 		hp_min = def.hp_min,
 		hp_max = def.hp_max,
@@ -145,7 +145,7 @@ function vehicle_mash.register_vehicle(name, def)
 				local passenger = self.passengers[i]
 				if passenger.player then
 					lib_mount.detach(passenger.player, passenger.eye_offset)
-					passenger.player:set_eye_offset({x = 0, y = 0, z = 0} ,{ x = 0, y = 0, z = 0 })
+					passenger.player:set_eye_offset(vector.new(0,0,0), vector.new(0,0,0))
 				end
 			end
 		end
