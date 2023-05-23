@@ -39,7 +39,7 @@ For further information or help, see:\
 
 ## Known issues
 
-- Attachments incorrectly ordered.
+- None as of now.
 
 ## License
 
