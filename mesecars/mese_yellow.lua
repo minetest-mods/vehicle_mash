@@ -2,7 +2,7 @@
 local name = "mesecar_yellow"
 local definition = ...
 
-definition.description = "Yellow Mesecar"
+definition.description = vehicle_mash.S("Yellow Mesecar")
 definition.inventory_image = "mesecar_car4front.png"
 definition.wield_image = "mesecar_car4front.png"
 definition.textures = {
