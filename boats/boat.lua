@@ -1,9 +1,8 @@
-
 local name = "boat"
 local definition = ...
 local craft_check = minetest.settings:get_bool("vehicle_mash.enable_crafts")
 
-definition.description = "BoatA"
+definition.description = vehicle_mash.S("BoatA")
 definition.inventory_image = "boat_inventory.png"
 definition.wield_image = "boat_wield.png"
 definition.mesh = "boats_boat.obj"

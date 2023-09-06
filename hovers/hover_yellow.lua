@@ -1,9 +1,8 @@
-
 local name = "hover_yellow"
 
 local definition = ...
 
-definition.description = "Yellow hovercraft"
+definition.description = vehicle_mash.S("Yellow hovercraft")
 definition.inventory_image = "hovercraft_yellow_inv.png"
 definition.wield_image = "hovercraft_yellow_inv.png"
 definition.textures = {"hovercraft_yellow.png"}

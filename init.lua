@@ -1,4 +1,6 @@
-vehicle_mash = { }
+vehicle_mash = {
+	S = minetest.get_translator(minetest.get_current_modname())
+}
 
 -- Fix `player_api` eye height model if desired
 if minetest.settings:get_bool("vehicle_mash.player_api_fix") == true or minetest.settings:get_bool("vehicle_mash.player_api_fix") == nil
