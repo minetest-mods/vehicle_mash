@@ -1,4 +1,4 @@
-# Vehicle Mash [![Build status](https://github.com/minetest-mods/vehicle_mash/workflows/build/badge.svg)](https://github.com/minetest-mods/vehicle_mash/actions) [![ContentDB](https://content.minetest.net/packages/Panquesito7/vehicle_mash/shields/downloads/)](https://content.minetest.net/packages/Panquesito7/vehicle_mash/)
+# Vehicle Mash [![LuaCheck status](https://github.com/minetest-mods/vehicle_mash/workflows/luacheck/badge.svg)](https://github.com/minetest-mods/vehicle_mash/actions) [![ContentDB](https://content.minetest.net/packages/Panquesito7/vehicle_mash/shields/downloads/)](https://content.minetest.net/packages/Panquesito7/vehicle_mash/)
 
 - Current version: 2.4.0
 - By [blert2112](https://github.com/blert2112), and handed over to [Panquesito7](https://github.com/Panquesito7).
