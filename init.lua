@@ -224,13 +224,6 @@ else
 		recipe = nil
 	}
 
-	local hover_names = {
-		"hover_blue",
-		"hover_green",
-		"hover_red",
-		"hover_yellow",
-	}
-
 	-- Load Hovercraft.
 	loadfile(mpath .. "/vehicles/hovercraft.lua")(table.copy(hover_def))
 end
