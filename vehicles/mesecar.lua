@@ -4,15 +4,16 @@ local types = {
 }
 
 for _,color in pairs(types) do
-    if minetest.settings:get_bool("vehicle_mash.enable_mesecar_" .. color .. "_car") == false then return end
+    if minetest.settings:get_bool("vehicle_mash.enable_mesecar_" .. color .. "_car") then
+        local def = table.copy(definition)
+        local name = "mesecar_"..color
+        local capitalization = color:gsub("^%l", string.upper)
+        local style = capitalization:gsub("_", " ")
 
-    local name = "mesecar_"..color
-    local capitalization = color:gsub("^%l", string.upper)
-    local style = capitalization:gsub("_", " ")
+        def.description = vehicle_mash.S("@1 Mesecar", style)
+        def.inventory_image = "mesecar_" .. type .. "_front"
+        def.wield_image = "mesecar_" .. type .. "_front"
 
-    definition.description = vehicle_mash.S("@1 Mesecar", style)
-    definition.inventory_image = "mesecar_" .. type .. "_front"
-    definition.wield_image = "mesecar_" .. type .. "_front"
-
-    vehicle_mash.register_vehicle("vehicle_mash:"..name, definition)
+        vehicle_mash.register_vehicle("vehicle_mash:"..name, def)
+    end
 end
